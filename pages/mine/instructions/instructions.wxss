@@ -1,0 +1,7 @@
+/* pages/mine/instructions/instructions.wxss */
+page {
+  background-color: #ffd200;
+}
+image {
+  width: 100%;
+}

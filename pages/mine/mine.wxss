@@ -1,0 +1,137 @@
+/* pages/mine/mine.wxss */
+
+
+/* 个人信息 */
+.info {
+  padding: 50rpx 0 100rpx;
+  width: 100%;
+  background-color: #ffd200;
+}
+.info .avatarUrl {
+  margin: 0 auto 25rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.info .avatarUrl image {
+  width: 100%;
+}
+.info text {
+  display: block;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+}
+/* 余额与佣金 */
+.money {
+  position: relative;
+  top: -50rpx;
+  padding: 50rpx 0;
+  width: 660rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.money view {
+  flex: 1;
+  line-height: 40rpx;
+}
+.money view text {
+  display: block;
+}
+.money view text:first-child {
+  line-height: 60rpx;
+  font-size: 36rpx;
+  color: #ffd200;
+}
+/* 分割线 */
+.money .line {
+  flex: 0 0 1px;
+  width: 1px;
+  height: 100rpx;
+  overflow: hidden;
+}
+/* 余额 */
+.money .yue {
+  text-align: right;
+}
+.money .yue text {
+  padding-right: 60rpx;
+}
+/* 佣金 */
+.money .yongjin {
+  text-align: left;
+}
+.money .yongjin text {
+  padding-left: 60rpx;
+}
+/* 商城订单与施工订单公共部分 */
+.list-item {
+  width: 100%;
+  margin-bottom: 10rpx;
+  background-color: #fff;
+}
+.list-item .title {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 45rpx;
+  display: flex;
+  align-items: center;
+}
+.list-item .title .text {
+  flex: 0 0 auto;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.list-item .title .all {
+  padding: 25rpx 0 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #a2a2a2;
+}
+.list-item .title .all image {
+  margin-left: 15rpx;
+  width: 14rpx;
+}
+/* 商城订单与施工订单公共部分 */
+.orderList {
+  padding:15rpx 10rpx 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-item {
+  text-align: center;
+  flex: 1;
+}
+.order-item .img {
+  display: inline-block;
+  width: 40rpx;
+  position: relative;
+}
+.order-item .img text {
+   position: absolute;
+   left: 26rpx;
+   top: -10rpx;
+   z-index: 9;
+   min-width: 26rpx;
+   height: 26rpx;
+   line-height: 26rpx;
+   text-align: center;
+   border-radius: 26rpx;
+   border: 1px solid #ffd200;
+   background-color: #fff;
+   color: #ffd200;
+   font-size: 18rpx;
+}
+.order-item .text {
+  margin-top: 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}

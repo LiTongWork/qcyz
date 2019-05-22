@@ -1,0 +1,58 @@
+<!--pages/masterCenter/masterCenter.wxml-->
+<view class='container' style='background-color:#f8f8f8'>
+  <!-- 头部师傅个人信息介绍 -->
+  <view class='header-tag'>
+    <image class='header-pic' src='{{masterPic}}' mode='widthFix' bindtap='toedit'></image>
+    <view class='header-column'>
+      <text class='header-name'>{{name}}</text>
+      <view>
+        <text>总单数:</text>
+        <text>{{masterNumber}}单</text>
+      </view>
+      <view>
+        <text>地址:</text>
+        <text>{{masterAddress}}</text>
+      </view>
+      <view>
+        <text>电话：</text>
+        <text>{{masterPhone}}</text>
+      </view>
+      <view>
+        <text class="{{type==1?'active':'header-btn'}}" bindtap='doIt'>接单中</text>
+        <text class="{{type==0?'active':'header-btn'}}" bindtap='doing'>工作中</text>
+      </view>
+    </view>
+  </view>
+  <!-- 任务大厅/任务订单/我的余额 -->
+  <view class='master-contain'>
+    <view class='master-list-tag' bindtap='masterList'>
+      <view class='master-tag'>
+        <image class='master-tag-img' src='/static/img/order.png'></image>
+        <text>订单大厅</text>
+      </view>
+      <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+    </view>
+    <view class='master-list-tag' bindtap='masterOrder'>
+      <view class='master-tag'>
+        <image class='master-tag-img' src='/static/img/renwu.png'></image>
+        <text>订单任务</text>
+      </view>
+      <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+    </view>
+    <view class='master-list-tag' bindtap="masterMoney">
+      <view class='master-tag'>
+        <image class='master-tag-img' src='/static/img/money.png'></image>
+        <text>我的余额</text>
+      </view>
+      <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+    </view>
+    <view class='master-list-tag' bindtap="masterSet">
+      <view class='master-tag'>
+        <image class='master-tag-img' src='/static/img/shezhi.png'></image>
+        <text>我的设置</text>
+      </view>
+      <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+</view>

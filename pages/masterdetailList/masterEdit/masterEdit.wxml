@@ -1,0 +1,92 @@
+<!--pages/masterdetailList/masterEdit/masterEdit.wxml-->
+<view class='container' style='background-color:#f8f8f8'>
+  <!-- 头部个人名称 -->
+  <view class='edit-header'>
+    <image class='edit-pic' src='{{editHeader}}'></image>
+    <text>{{name}}</text>
+  </view>
+  <!-- 姓名 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>姓名</text>
+    <view class='input-item'>
+      <text style='color:#ffd200'>*</text>
+      <input class='input-text' type='text' auto-focus value='{{loginName}}' placeholder='请输入您的姓名' placeholder-style='color:#a2a2a2' bindinput='changeName' />
+    </view>
+  </view>
+  <!-- 电话 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>电话</text>
+    <view class='input-item'>
+      <text style='color:#ffd200'>*</text>
+      <input class='input-text' type='number' maxlength='11' value='{{loginPhone}}' placeholder='请输入您的电话' placeholder-style='color:#a2a2a2' bindinput='changePhone' />
+    </view>
+  </view>
+  <!-- 地址 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>地址</text>
+    <picker class='input-item' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view wx:if="{{region!=''}}" class="picker">
+        {{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+      <view wx:else style='justify-content: space-between;align-items:center;'>
+        <view style='align-items:center;' class="picker ">
+          <text style='color:#ffd200'>*</text>
+          <text>请选择</text>
+        </view>
+        <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </picker>
+  </view>
+  <!--工种 -->
+  <view class='input-tag' style='height:auto;'>
+    <text style='flex:1;text-align:center;'>工种</text>
+    <view class='sigle-select'>
+      <view class='sigle-select-tag' wx:for-items="{{worker}}" wx:key="index" data-index='{{index}}' bindtap='clickBtn'>
+        <image class='default-select' src='/static/img/default.png' wx:if="{{item.check==false}}"></image>
+        <image class='default-select click-select' src='/static/img/click.png' wx:if="{{item.check==true}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 银行卡 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>银行卡</text>
+    <input class='input-item' value='{{bankName}}' disabled='true'></input>
+  </view>
+  <!-- 卡号 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>卡号</text>
+    <view class='input-item'>
+      <text style='color:#ffd200'>*</text>
+      <input class='input-text' type='text' value='{{bankNumber}}' placeholder='请输入您的卡号' placeholder-style='color:#a2a2a2' bindinput='getUserIdCardNumber' />
+    </view>
+  </view>
+  <!-- 地址 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>身份证</text>
+    <view class='input-item'>
+      <text style='color:#ffd200'>*</text>
+      <input class='input-text' type='text' maxlength='18' value='{{loginZheng}}' placeholder='请输入您的身份证号' placeholder-style='color:#a2a2a2' bindinput='changeZheng' />
+    </view>
+  </view>
+  <!-- 支付密码 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>支付密码</text>
+    <view class='input-item'>
+      <text style='color:#ffd200'>*</text>
+      <input class='input-text' type='number' maxlength='6' value='{{pwd}}' placeholder='请输入支付密码' placeholder-style='color:#a2a2a2' bindinput='changePwd' />
+    </view>
+  </view>
+  <!-- 支付密码 -->
+  <view class='input-tag'>
+    <text style='flex:1;text-align:center;'>登录密码</text>
+    <view class='input-item'>
+      <text style='color:#ffd200'>*</text>
+      <input class='input-text' type='number' value='{{loginPwd}}' placeholder='请输入登陆密码' placeholder-style='color:#a2a2a2' bindinput='changeLoginPwd' />
+    </view>
+  </view>
+
+  <view class='monety-btn' bindtap='holdBtn'>
+    <text class='true-btn'>提交审核</text>
+  </view>
+</view>

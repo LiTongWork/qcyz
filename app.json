@@ -1,0 +1,83 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/store/store",
+    "pages/service/service",
+    "pages/mine/mine",
+    "pages/master/master",
+    "pages/master/dq/dq",
+    "pages/logs/logs",
+    "pages/store/goodsList/goodsList",
+    "pages/store/goodsDetail/goodsDetail",
+    "pages/store/shopCar/shopCar",
+    "pages/store/makeSure/makeSure",
+    "pages/store/address/address",
+    "pages/store/newAddress/newAddress",
+    "pages/store/editAddress/editAddress",
+    "pages/store/tenants/tenants",
+    "pages/mine/instructions/instructions",
+    "pages/mine/coupons/coupons",
+    "pages/mine/storeOrder/storeOrder",
+    "pages/mine/workOrder/workOrder",
+    "pages/mine/refund/refund",
+    "pages/mine/commission/commission",
+    "pages/mine/comment/comment",
+    "pages/mine/logistics/logistics",
+    "pages/design/design",
+    "pages/decorateKeeper/decorateKeeper",
+    "pages/case/case",
+    "pages/forget/forget",
+    "pages/city/city",
+    "pages/mine/edit/edit",
+    "pages/masterCenter/masterCenter",
+    "pages/masterdetailList/masterEdit/masterEdit",
+    "pages/masterdetailList/masterOrder/masterOrder",
+    "pages/masterdetailList/masterMoney/masterMoney",
+    "pages/masterdetailList/masterList/masterList",
+    "pages/masterdetailList/masterSet/masterSet",
+    "pages/masterdetailList/changePwd/changePwd",
+    "pages/masterdetailList/masterDetail/masterDetail",
+    "pages/mine/changePwd/changePwd",
+    "pages/authorization/authorization",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffd200",
+    "navigationBarTitleText": "七彩云装",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#333",
+    "selectedColor": "#ffd200",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./static/img/sywdj.png",
+        "selectedIconPath": "./static/img/syydj.png"
+      },
+      {
+        "pagePath": "pages/store/store",
+        "text": "商城",
+        "iconPath": "./static/img/scwdj.png",
+        "selectedIconPath": "./static/img/scydj.png"
+      },
+      {
+        "pagePath": "pages/service/service",
+        "text": "在线客服",
+        "iconPath": "./static/img/kfwdj.png",
+        "selectedIconPath": "./static/img/kfydj.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./static/img/wdwdj.png",
+        "selectedIconPath": "./static/img/wdydj.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

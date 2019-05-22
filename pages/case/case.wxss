@@ -1,0 +1,34 @@
+/* pages/case/case.wxss */
+.container {
+  padding: 35rpx 45rpx;
+}
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.list-item {
+  flex: 0 0 324rpx;
+  width: 324rpx;
+}
+.list-item image {
+  border-radius: 8rpx;
+  width: 324rpx;
+  height: 400rpx;
+}
+.list-item text {
+  display: block;
+  margin: 15rpx 0 10rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 暂无数据 */
+.noData {
+  height: 300rpx;
+  line-height: 300rpx;
+  color: #a2a2a2;
+}

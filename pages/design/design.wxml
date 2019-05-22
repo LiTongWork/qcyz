@@ -1,0 +1,40 @@
+<view class='container'>
+  <!-- 顶部banner广告 -->
+  <view class='topBanner'><image src='{{advertisement.topBanner}}' mode='widthFix'></image></view>
+  <!-- 免费预约 -->
+  <view class='free'>
+    <view class='freeAppointment'><image src='{{freeAppointment}}' mode='widthFix'></image></view>
+    <form>
+    <!-- 地址 -->
+      <view class='item position'>
+        <view class='icon'>
+          <image class='icon-position' src='/static/img/icon-position.png' mode='widthFix'></image>
+          <view class='icon-line'><image src='/static/img/icon-line.png' mode='widthFix'></image></view>
+        </view>
+        <view class='input'>  
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker">
+              <text wx:if='{{!regionStatus}}' class='tips'>请选择地址</text>
+              <text wx:else>{{region.value[0]}}{{region.value[1]}}{{region.value[2]}}</text>
+            </view>
+          </picker>
+        </view>
+        <image class='icon-right' src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+      <!-- 手机号 -->
+      <view class='item phone'>
+        <view class='icon'>
+          <image class='icon-phone' src='/static/img/icon-phone.png' mode='widthFix'></image>
+          <view class='icon-line'><image src='/static/img/icon-line.png' mode='widthFix'></image></view>
+        </view>
+        <view class='input'>  
+          <input type='number' placeholder='请输入手机号码' value='{{phone}}' bindinput='inputPhone'/>
+        </view>
+      </view>
+      <view class='tips'>*为了您的隐私及我们的声誉    您的信息将被严格保密</view>
+      <view class='sub'><button bindtap='handleSub'>立即预约</button></view>
+    </form>
+  </view>
+  <!-- 底部服务流程 -->
+  <view class='serviceFlow'><image src='{{advertisement.bottomBanner}}' mode='widthFix'></image></view>
+</view>

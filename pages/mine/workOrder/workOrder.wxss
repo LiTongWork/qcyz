@@ -1,0 +1,94 @@
+/* pages/mine/workOrder/workOrder.wxss */
+/* 顶部导航 */
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.nav-item {
+  flex: 1;
+  text-align: center;
+}
+.nav-item text {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #fff;
+}
+.nav-item.active text{
+  color: #ffd200;
+  border-bottom: 1px solid #ffd200;
+}
+.content {
+  margin-top: 100rpx;
+}
+/* 订单列表 */
+.list-item {
+  box-sizing: border-box;
+  padding: 25rpx;
+  margin: 34rpx auto 0;
+  width: 660rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  color: #a2a2a2;
+  position: relative;
+}
+/* 状态 */
+.list-item .type {
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-item .type .name {
+  font-weight: bold;
+  color: #333;
+}
+/* 时间 */
+.list-item .time {
+  margin-top: 25rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+/* 地址 */
+.list-item .address {
+  margin: 10rpx 0;
+  width: 340rpx;
+  min-height: 30rpx;
+  line-height: 30rpx;
+}
+/* 操作按钮 */
+.list-item .handle {
+  position: absolute;
+  right: 25rpx;
+  bottom: 25rpx;
+  z-index: 9;
+  width: 300rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.list-item .handle view {
+  flex: 0 0 80rpx;
+  padding: 0 10rpx;
+  margin-left: 10rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border-radius: 46rpx;
+  color: #333;
+  border: 1px solid #a2a2a2;
+}
+/* 暂无数据 */
+.noData {
+  width: 100%;
+  height: 300rpx;
+  line-height: 300rpx;
+  text-align: center;
+  color: #a2a2a2;
+}

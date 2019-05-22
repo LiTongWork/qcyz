@@ -1,0 +1,45 @@
+<!--pages/store/goodsDetail/goodsDetail.wxml-->
+<view class='container'>
+<!-- 顶部商品图片轮播 -->
+  <view class='banner'>
+    <swiper 
+      autoplay='{{topBannerData.autoplay}}'
+      interval='{{topBannerData.interval}}'
+      duration='{{topBannerData.duration}}'
+      indicator-dots='{{topBannerData.indicatorDots}}'
+      indicator-active-color='{{topBannerData.indicatorActiveColor}}'
+    >
+      <swiper-item wx:for='{{detailData.goodsImg}}' wx:key='index'>
+        <image src='{{imgUrl + item}}'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 内容 -->
+  <view class='content'>
+    <view class='title'>{{detailData.goodsName}}</view>
+    <view class='price'>
+      <text class='newPrice'>￥<text>{{detailData.money}}</text></text>
+      <text class='oldPrice'>￥{{detailData.originalPrice}}</text>
+    </view>
+    <view class=' freight'>运费：<text>{{detailData.freight > 0 ? detailData.freight : '免运费'}}</text></view>
+    <view class='comments'>
+      <view class='title'>
+        <text>宝贝评论</text>
+        <text class='fr'>暂无评论</text>
+      </view>
+    </view>
+  </view>
+  <view class='subOrder'>
+    <view class='service'>
+      <image src='/static/img/icon-service.png' mode='widthFix'></image>
+      <text>客服</text>
+    </view>
+    <view class='line'><image src='/static/img/icon-line.png' mode='widthFix'></image></view>
+    <view class='shopCar' bindtap='toShopCar'>
+      <image src='/static/img/icon-car.png' mode='widthFix'></image>
+      <text>购物车</text>
+    </view>
+    <view class='addCar' bindtap='addCar'>加入购物车</view>
+    <view class='buy' bindtap='toMakeSure'>立即购买</view>
+  </view>
+</view>

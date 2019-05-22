@@ -1,0 +1,87 @@
+<!--index.wxml-->
+<view class="container">
+<!-- 头部搜索 -->
+  <view class='head-nav'>
+    <!-- 定位 -->
+    <!-- <view class='province' bindtap='toCity' data->
+      <text>{{positioning}}</text>
+      <image class='province-icon' src='/static/img/province-icon.png'></image>
+    </view> -->
+    <!-- 搜索 -->
+    <view class='search'>
+      <icon type='search' size='30rpx' bindtap='listSearch'></icon>
+      <input confirm-type='search' bindconfirm='listSearch' bindinput='searchInput' placeholder='请输入商品名称' value='{{searchName}}'></input>
+    </view>
+    <!-- 跳转购物车 -->
+    <view class='car' bindtap='toShopCar'>
+      <image src='/static/img/shoppingCar.png'></image>
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class='banner'>
+    <swiper 
+      autoplay='{{swiperData.autoplay}}'
+      interval='{{swiperData.interval}}'
+      duration='{{swiperData.duration}}'
+      indicator-dots='{{swiperData.indicatorDots}}'
+      indicator-active-color='{{swiperData.indicatorActiveColor}}'
+    >
+       <swiper-item wx:for='{{topBannerData}}' wx:key='index'>
+        <image src='{{imgUrl + item.advUrl}}' mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+<!-- 首页导航nav -->
+  <view class='nav'>
+    <view class='nav-item' bindtap='toMaster'>
+      <view class='img-box'><image src='/static/img/indexNav1.png' mode='widthFix'></image></view>
+      <view class='text'>我要找师傅</view>
+    </view>
+    <view class='nav-item' bindtap='toStore'>
+      <view class='img-box'><image src='/static/img/indexNav2.png' mode='widthFix'></image></view>
+      <view class='text'>我要找材料</view>
+    </view>
+    <view class='nav-item' bindtap='toDesign'>
+      <view class='img-box'><image src='/static/img/indexNav3.png' mode='widthFix'></image></view>
+      <view class='text'>我要找设计</view>
+    </view>
+    <view class='nav-item' bindtap='toMasterDq' data-id='C412C2DF-4BC1-4E9B-8DCD-DFF0E2218E57' data-title='装修管家'>
+      <view class='img-box'><image src='/static/img/indexNav4.png' mode='widthFix'></image></view>
+      <view class='text'>装修管家</view>
+    </view>
+    <view class='nav-item' bindtap='toCase'>
+      <view class='img-box'><image src='/static/img/indexNav5.png' mode='widthFix'></image></view>
+      <view class='text'>案例展示</view>
+    </view>
+    <view class='nav-item' bindtap='toClean' data-id='{{masterType[10].id}}' data-title='{{masterType[10].name}}'>
+      <view class='img-box'><image src='/static/img/indexNav6.png' mode='widthFix'></image></view>
+      <view class='text'>家政保洁</view>
+    </view>
+    <view class='nav-item'>
+      <view class='img-box'><image src='/static/img/indexNav7.png' mode='widthFix'></image></view>
+      <view class='text'>我要去推荐</view>
+      <button open-type='share'></button>
+    </view>
+    <view class='nav-item' bindtap='toRegister' data-from='index' data-type='register'>
+      <view class='img-box'><image src='/static/img/indexNav8.png' mode='widthFix'></image></view>
+      <view class='text'>注册工人</view>
+    </view>
+  </view>
+  <!-- ad -->
+  <view class='indexAd' bindtap='toRegister' data-from='index' data-type='register'>
+    <image src='{{imgUrl + adData.advUrl}}' mode='widthFix'></image>
+  </view>
+  <view class='indexAd bottomBanner '>
+   <swiper 
+      autoplay='{{swiperData.autoplay}}'
+      interval='{{swiperData.interval}}'
+      duration='{{swiperData.duration}}'
+      indicator-dots='{{swiperData.indicatorDots}}'
+      indicator-active-color='{{swiperData.indicatorActiveColor}}'
+    >
+      <swiper-item wx:for='{{bottomBannerData}}' wx:key='index'>
+        <image src='{{imgUrl + item.advUrl}}' mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

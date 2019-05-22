@@ -1,0 +1,104 @@
+<!--pages/mine/mine.wxml-->
+<view class='container'>
+<!-- 头像信息 -->
+  <view class='info' bindtap='toEdit'>
+    <view class='avatarUrl'><image src='{{avatarUrl}}' mode='widthFix'></image></view>
+    <text class='name'>{{name}}</text>
+    <text class='id'>ID: {{id}}</text>
+  </view>
+  <!-- 余额佣金 -->
+  <!-- <view class='money'>
+    <view class='yue'>
+      <text>￥{{yue}}</text>
+      <text>我的余额</text>
+    </view>
+    <view class='line'><image src='/static/img/icon-line.png' mode='widthFix'></image></view>
+    <view class='yongjin' bindtap='toCommission'>
+      <text>￥{{yongjin}}</text>
+      <text>我的佣金</text>
+    </view>
+  </view> -->
+  <!-- 商城订单 -->
+  <view class='list-item order storeOrder'>
+    <view class='title'>
+      <text class='text'>商城订单</text>
+      <view class='all' bindtap='toStoreall' data-title='商城订单' data-type='-1'>
+        <text>查看全部订单</text>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='orderList'>
+      <view class='order-item' wx:for='{{orderList}}' wx:key='index' data-title='{{item.label}}' data-type='{{item.type}}' bindtap='toStoreOrder'>
+        <view class='img'>
+          <image src='{{item.img}}' mode='widthFix'></image>
+          <text class='count' wx:if='{{item.count}}'>{{item.count}}</text>
+        </view>
+        <view class='text'>{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+    <!-- 施工订单 -->
+  <view class='list-item order workOrder'>
+    <view class='title'>
+      <text class='text'>施工订单</text>
+      <view class='all' bindtap='toWorkOrder' data-title='施工订单' data-type='-1'>
+        <text>查看全部订单</text>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='orderList'>
+      <view class='order-item' wx:for='{{workList}}' wx:key='index' data-title='{{item.label}}' data-type='{{item.type}}' bindtap='toWorkOrder'>
+        <view class='img'>
+          <image src='{{item.img}}' mode='widthFix'></image>
+          <text class='count' wx:if='{{item.count}}'>{{item.count}}</text>
+        </view>
+        <view class='text'>{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 我是师傅 -->
+  <view class='list-item'>
+    <view class='title' bindtap='toRegister'>
+      <text class='text'>我是师傅</text>
+      <view class='all'>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+   <!-- 操作说明 -->
+  <view class='list-item' bindtap='toInstructions'>
+    <view class='title'>
+      <text class='text'>操作说明</text>
+      <view class='all'>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+   <!-- 优惠券 -->
+  <view class='list-item' bindtap='toCoupons'>
+    <view class='title'>
+      <text class='text'>优惠券</text>
+      <view class='all'>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 修改密码 -->
+  <view class='list-item' bindtap='toChagePwd'>
+    <view class='title'>
+      <text class='text'>修改密码</text>
+      <view class='all'>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+   <!-- 退出登录 -->
+  <view class='list-item' bindtap='logOut'>
+    <view class='title'>
+      <text class='text'>退出登录</text>
+      <view class='all'>
+        <image src='/static/img/icon-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+</view>

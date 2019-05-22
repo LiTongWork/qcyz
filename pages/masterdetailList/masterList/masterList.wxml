@@ -1,0 +1,22 @@
+<!--pages/masterdetailList/masterList/masterList.wxml-->
+<view class='container' style='background-color:#f8f8f8'>
+  <block wx:for-items="{{masterList}}" wx:key="{{index}}">
+    <view class='masterList-list'>
+      <view class='master-p' bindtap='masterDetail' data-id="{{item.id}}" data-masterid="{{item.masterTypeId}}">
+        <image class='masterList-img' src='{{item.headImg ? item.headImg : "/static/img/defaultPhoto.png"}}' mode='widthFix'></image>
+        <view class='master-list'>
+          <text style="font-size:30rpx;overflow:hidden">{{item.nickName ? item.niceName : ''}}有个{{item.payMoney}}施工订单</text>
+          <view class='address-local'>
+            <image class='local-icon' src='/static/img/local-icon.png' mode='widthFix'></image>
+            <text style="font-size:24rpx;color:#bcbcbc;overflow:hidden">{{item.province + item.city + item.area + item.address}}</text>
+          </view>
+          <text style="font-size:24rpx;color:#bcbcbc">{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class='master-btn' bindtap='orderDan' data-id='{{item.id}}' data-index='{{index}}'>
+        <image wx:if="{{item.status==1}}" class='master-btn' src='/static/img/wait.png' mode='widthFix'></image>
+        <image wx:if="{{item.status==2}}" class='master-btn' src='/static/img/success.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </block>
+</view>

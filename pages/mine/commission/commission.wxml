@@ -1,0 +1,18 @@
+<!--pages/mine/commission/commission.wxml-->
+<view class='container'>
+  <view class='yongjin'>
+    <view class='totalMoney'>总金额: <text>￥20.00</text></view>
+    <view class='tixian'>提现</view>
+  </view>
+  <!-- 列表 -->
+  <view class='list'>
+    <view class='title'>我分享的客户</view>
+    <view class='list-item' wx:for='{{list}}' wx:key='index'>
+      <view class='headPic'><image src='{{item.headPic}}' mode='widthFix'></image></view>
+      <view class='info'>
+        <view class='name'>{{item.name}}</view>
+        <view class='id'>ID:<text>{{item.id}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>

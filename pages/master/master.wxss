@@ -1,0 +1,102 @@
+/* pages/master/master.wxss */
+/* 顶部banner */
+.banner {
+  width: 100%;
+}
+/* master导航 */
+.nav {
+  padding: 26rpx 0 30rpx 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-item {
+  margin-top: 24rpx;
+  flex: 0 1 25%;
+  width: 25%;
+  text-align: center;
+}
+.nav-item .img-box {
+  margin: 0 auto;
+  display: block;
+  width: 78rpx;
+  height: 78rpx;
+}
+.nav-item .text {
+  display: block;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 季度劳模列表 */
+.list {
+  padding-bottom: 100rpx;
+  width: 100%;
+}
+.list .title {
+  padding-left: 45rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.list .list-item {
+  padding: 25rpx 45rpx;
+  background-color: #fff;
+  display: flex;
+}
+.list-item .photo {
+  flex: 0 0 178rpx;
+  width: 178rpx;
+  height: 178rpx;
+}
+.list-item .info {
+  padding-left: 25rpx;
+  height: 178rpx;
+  overflow: hidden;
+}
+.info view {
+  height: 44rpx;
+  line-height: 44rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info view text {
+  font-weight: normal;
+}
+.info .rate {
+  font-size: 0;
+}
+.info .rate image {
+  display: inline-block;
+  vertical-align: top;
+  width: 36rpx;
+}
+/* 投诉与裁判 */
+.feedback {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  display: flex;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #ffd200;
+}
+.complain {
+  padding: 0 70rpx;
+  background-color: #e5bd03;
+}
+.judge {
+  flex: 1;
+}

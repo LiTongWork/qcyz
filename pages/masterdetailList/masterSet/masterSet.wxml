@@ -1,0 +1,15 @@
+<!--pages/masterdetailList/masterSet/masterSet.wxml-->
+<view class='container' style='background-color:#f8f8f8;'>
+  <!-- 登陆密码重置 -->
+  <view class='master-list-tag' bindtap="masterPwd" style='margin-top:30rpx;'>
+    <view class='master-tag'>
+      <image class='master-tag-img' src='/static/img/shezhi.png'></image>
+      <text>登陆密码重置</text>
+    </view>
+    <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+  </view>
+  <!-- 退出 -->
+  <view class='monety-btn' bindtap='logOut'>
+    <text class='true-btn'>退出登录</text>
+  </view>
+</view>

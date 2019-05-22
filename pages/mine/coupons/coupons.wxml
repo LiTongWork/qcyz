@@ -1,0 +1,14 @@
+<!--pages/mine/coupons/coupons.wxml-->
+<view class='container'>
+  <block wx:if='{{list.length > 0}}'>
+    <view class='list-item' wx:for='{{list}}' wx:key='index' data-id='{{item.id}}' data-status='{{item.status}}' bindtap='clickUse'>
+      <image wx:if='{{item.status}}' src='/static/img/have-receive.png' mode='widthFix'></image>
+      <image wx:else src='/static/img/receive.png' mode='widthFix'></image>
+      <view class='content'>
+        <view class='money'><text>{{item.priceStart}}</text>元</view>
+        <view class='requirements'>{{item.couponsCode}}</view>
+      </view>
+    </view>
+  </block>
+  <view wx:else class='noData'>暂无数据</view>
+</view>

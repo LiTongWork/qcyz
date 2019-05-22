@@ -1,0 +1,53 @@
+<!--pages/mine/storeOreder/storeOreder.wxml-->
+<view class='container'>
+  <!-- nav -->
+  <view class='nav'>
+    <view class='nav-item {{item.type == showFlag ? "active": " "}}' wx:for='{{nav}}' wx:key='index' data-type='{{item.type}}' data-title='{{item.label}}' bindtap='clickNavigation'>
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+  <!-- 订单信息 -->
+  <view wx:if='{{storeData.length > 0}}'>
+    <view class='order' wx:for='{{storeData}}' wx:key='index' wx:for-item="i">
+      <view class='title' data-index='{{index}}'>
+        <view class='icon'><image src='/static/img/icon-store.png' mode='widthFix'></image></view>
+        <text class='store'>{{i.merchantName}}</text>
+        <view class='status'>
+          <text wx:if="{{i.status==0}}">等待买家付款</text>
+          <text wx:elif="{{i.status==1}}">等待卖家发货</text>
+          <text wx:elif="{{i.status==2}}">等待买家收货</text>
+          <text wx:elif="{{i.status==3}}">交易成功</text>
+        </view>
+      </view>
+      <view class='info' wx:for="{{goodsList}}" wx:key='index' wx:for-item="j">
+        <view class='pic'><image src='{{j.goodsImg}}' mode='widthFix'></image></view>
+        <view class='desc'>
+          <view class='title'>{{j.goodsName}}</view>
+          <view class='freight'>运费：<text>{{i.freight > 0 ? i.freight : '免运费'}}</text></view>
+          <view class='price'>
+            <view class='money'>￥{{j.money * j.number}} <text style='color:#e9e9e9;font-weight: 500;'>x{{j.number}}</text></view>
+          </view>
+        </view>
+      </view>
+      <view class='handle'>
+        <block wx:if="{{i.status==0}}">
+          <!-- <view class='cancel'>取消订单</view> -->
+          <view class='yellow pay' bindtap='payMoney' data-index="{{index}}">付款</view>
+        </block>
+        <block wx:if="{{i.status==1}}">
+          <!-- <view class='yellow confim'> 退款</view> -->
+        </block>
+        <block wx:if="{{i.status==2}}">
+          <view class='logistics' data-id='{{i.id}}' bindtap='toLogistics'>查看物流</view>
+          <view class='yellow confim' data-id='{{i.id}}' bindtap='confimGoods'> 确认收货</view>
+        </block>
+        <block wx:if="{{i.status==3}}">
+          <!-- <view class='logistics' data-id='{{i.id}}' bindtap='toLogistics'>查看物流</view> -->
+          <view class='yellow confim' bindtap='pinjia' data-isreview='{{i.isReview}}' data-id="{{i.id}}"> {{i.isReview ? '查看评价' : '评价'}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='noData' wx:else>暂无数据</view>
+</view>
+

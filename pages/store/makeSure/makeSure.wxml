@@ -1,0 +1,48 @@
+<!--pages/store/makeSure/makeSure.wxml-->
+<view class='container'>
+<!-- 地址--新增 -->
+  <view wx:if="{{showAddress==0}}" class='address newAddress' bindtap='toNewAddress'>
+    <view class='icon'><image src='/static/img/icon-add.png' mode='widthFix'></image></view>
+    <view class='text'>新增地址</view>
+    <view class='right'><image src='/static/img/icon-right.png' mode='widthFix'></image></view>
+  </view>
+  <!-- 地址--已有 -->
+  <view wx:if="{{showAddress==1}}" class='address' bindtap='toAddress'>
+    <view class='icon'><image src='/static/img/icon-address.png' mode='widthFix'></image></view>
+    <view class='text'>
+      <view class='info'>
+        <text class='name'>{{consigneeName}}</text>
+        <text class='phone'>{{consigneeMobile}}</text>
+      </view>
+      <view class='addContent'>{{province}},{{city}},{{area}},{{address}}</view>
+    </view>
+    <view class='right'><image src='/static/img/icon-right.png' mode='widthFix'></image></view>
+  </view>
+  <!-- 订单信息 -->
+  <view class='order'>
+    <view class='title'>
+      <view class='icon'><image src='/static/img/icon-store.png' mode='widthFix'></image></view>
+      <text>{{merchantName}}</text>
+    </view>
+    <view class='info'>
+      <view class='pic'><image src='{{goodsImg}}' mode='widthFix'></image></view>
+      <view class='desc'>
+        <view class='title'>{{goodsContent}}</view>
+        <view class='freight'>运费：<text>{{freight > 0 ? freight : '免运费'}}</text></view>
+        <view class='price'>
+          <view class='money'>￥{{money*number}}</view>
+          <view class='count'>
+            <view class='minus' bindtap='reduce'>－</view>
+            <view class='number'>{{number}}</view>
+            <view class='plus' bindtap='increase'>＋</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 合计，提交订单 -->
+  <view class='sub'>
+    <view class='sum'>合计：<text>￥{{allPrice}}</text></view>
+    <view class='btn' bindtap='orderGoods'>提交订单</view>
+  </view>
+</view>

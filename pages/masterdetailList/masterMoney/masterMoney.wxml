@@ -1,0 +1,24 @@
+<!--pages/masterdetailList/masterMoney/masterMoney.wxml-->
+<view class='container' style='background-color:#f8f8f8'>
+  <view class='money-tag'>
+    <view class='money-item'>
+      <text>提现金额</text>
+      <view class='all-money'>
+        <text>余额 {{allMoney}},</text>
+        <text style='color:#fede67;margin-left:20rpx;' bindtap='allTake'>全部提现</text>
+      </view>
+    </view>
+    <view class='money-input'>
+      ￥
+      <input type='number' value='{{moneyNumber}}' auto-focus bindinput='number' />
+    </view>
+    <view class='money-input'>
+      <text style='font-size:30rpx;flex:1'>输入密码</text>
+      <input style='font-size:30rpx;padding-left:30rpx;flex:2' type='number' maxlength='6' value='{{moneyPwd}}' auto-focus bindinput='pwd' placeholder='请输入支付密码' placeholder-style='' />
+    </view>
+  </view>
+
+  <view class='monety-btn' bindtap='allTrue'>
+    <text class='true-btn'>确认提现</text>
+  </view>
+</view>

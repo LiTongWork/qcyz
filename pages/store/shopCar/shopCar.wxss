@@ -1,0 +1,258 @@
+/* pages/store/shopCar/shopCar.wxss */
+
+.container {
+  padding-bottom: 100rpx;
+}
+
+/* 新增地址 */
+
+.address {
+  padding: 35rpx 0;
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address .icon {
+  margin-left: 45rpx;
+  flex: 0 0 60rpx;
+  width: 60rpx;
+}
+
+.address .right {
+  margin-right: 45rpx;
+  width: 26rpx;
+}
+
+.address .text {
+  flex: 1;
+  padding: 0 15rpx;
+  font-size: 30rpx;
+}
+
+.address .text .info {
+  height: 40rpx;
+}
+
+.info text {
+  vertical-align: bottom;
+  font-size: 26rpx;
+}
+
+.info text.name {
+  font-weight: bold;
+}
+
+.info text.phone {
+  margin-left: 15rpx;
+  color: #a2a2a2;
+  font-size: 24rpx;
+}
+
+.address .text .addContent {
+  line-height: 40rpx;
+  font-size: 24rpx;
+}
+
+/* 无订单详情 */
+
+.no-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #a2a2a2;
+  font-size: 30rpx;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.nogoods {
+  height: 100rpx;
+  width: 100rpx;
+}
+
+/* 订单信息 */
+
+.order {
+  box-sizing: border-box;
+  margin-top: 50rpx;
+  padding: 0 25rpx;
+  width: 660rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.order .title {
+  display: flex;
+  align-items: center;
+  height: 116rpx;
+  line-height: 116rpx;
+}
+
+.order .sel {
+  margin-right: 10rpx;
+  width: 42rpx;
+}
+
+.order .title .icon {
+  margin-right: 15rpx;
+  width: 32rpx;
+}
+
+.order .title text {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+.order .info {
+  margin-top: 20rpx;
+  padding-bottom: 50rpx;
+  height: 184rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info .pic {
+  width: 184rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.info .desc {
+  margin-left: 15rpx;
+  flex: 1;
+  height: 100%;
+}
+
+.info .desc .title {
+  padding: 15rpx 0;
+  height: unset;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.info .desc .freight {
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #a2a2a2;
+}
+
+.info .desc .freight text {
+  margin-left: 15rpx;
+}
+
+.desc .price {
+  margin-top: 20rpx;
+  height: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.desc .price .money {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #ff4719;
+}
+
+.desc .price .count {
+  display: flex;
+  align-items: center;
+}
+
+.count .minus, .count .plus {
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #a2a2a2;
+  border: 1px solid #a2a2a2;
+}
+
+.count .number {
+  min-width: 50rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-top: 1px solid #a2a2a2;
+  border-bottom: 1px solid #a2a2a2;
+}
+
+/* 合计，提交订单 */
+
+.sub {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  box-sizing: border-box;
+  width: 100%;
+  height: 98rpx;
+  padding: 45rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sub .total {
+  height: 42rpx;
+}
+
+.sub .total image {
+  display: inline-block;
+  vertical-align: top;
+  width: 42rpx;
+}
+
+.sub .total text {
+  margin-left: 10rpx;
+}
+
+.sub .sum {
+  flex: 1;
+  text-align: right;
+}
+
+.sub .sum text {
+  padding: 0 20rpx;
+  color: #ff4719;
+  font-weight: bold;
+}
+
+.sub .btn {
+  flex: 0 0 190rpx;
+  width: 190rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 80rpx;
+  color: #fff;
+  background: linear-gradient(to right, #ffd100, #ffb003);
+}
+
+/* 删除图标 */
+
+.delate-icon {
+  height: 40rpx;
+  width: 40rpx;
+  justify-content: flex-end;
+}

@@ -1,0 +1,124 @@
+/**index.wxss**/
+/* 搜索导航栏 */
+.head-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  background-color: rgba(0, 0, 0, .1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.head-nav .province {
+  margin-left: 45rpx;
+  color: #fff;
+}
+.head-nav .province image {
+  margin: 0 10rpx;
+  display: inline-block;
+  width: 24rpx;
+  height: 20rpx;
+}
+.head-nav .search {
+  margin: 14rpx 20rpx;
+  flex: 1;
+  height: 52rpx;
+  background-color: #fff;
+  border-radius: 52rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.head-nav .search icon {
+  margin-left: 10rpx;
+  width: 52rpx;
+  height: 52rpx;
+  text-align: center;
+}
+.head-nav .search input {
+  flex: 1;
+  padding-right: 30rpx;
+}
+.head-nav .car {
+  margin-right: 45rpx;
+  font-size: 0;
+  width: 40rpx;
+  height: 40rpx;
+}
+.head-nav .car image{
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 顶部轮播banner */
+.banner {
+  width: 100%;
+  height: 380rpx;
+  /* background-color: #ffd200; */
+}
+swiper {
+  width: 100%;
+  height: 100%;
+}
+swiper .wx-swiper-dot {
+  width: 20rpx;
+  height: 20rpx;
+}
+/* 首页导航nav */
+.nav {
+  padding: 26rpx 0 30rpx 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-item {
+  position: relative;
+  margin-top: 24rpx;
+  flex: 0 1 25%;
+  width: 25%;
+  text-align: center;
+}
+.nav-item .img-box {
+  margin: 0 auto;
+  display: block;
+  width: 78rpx;
+  height: 78rpx;
+}
+.nav-item .text {
+  display: block;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+.nav-item button::after {
+  border: none;
+}
+/* 中部广告 */
+.indexAd {
+  margin-top: 30rpx;
+  width: 100%;
+}
+/* 底部轮播 */
+.bottomBanner {
+  width: 100%;
+  height: 190rpx;
+}

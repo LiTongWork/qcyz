@@ -1,0 +1,98 @@
+/* pages/masterCenter/masterCenter.wxss */
+
+/* 全部的view标签都用flex布局 */
+view {
+  display: flex;
+}
+
+/* 头部师傅个人信息 */
+
+.header-tag {
+  flex: 1;
+  align-items: center;
+  width: 750rpx;
+  height: 280rpx;
+  background: -webkit-linear-gradient(bottom, #ffb502, #ffd100);
+  background: -o-linear-gradient(bottom, #ffb502, #ffd100);
+  background: -mos-linear-gradient(bottom, #ffb502, #ffd100);
+  background: -moz-linear-gradient(bottom, #ffb502, #ffd100);
+  background: linear-gradient(bottom, #ffb502, #ffd100);
+}
+
+.header-pic {
+  height: 200rpx;
+  width: 200rpx;
+  background-color: #e3e3e3;
+  margin-left: 45rpx;
+  margin-right: 26rpx;
+}
+
+.header-column {
+  flex-direction: column;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 160%;
+}
+
+.header-name {
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40rpx;
+  width: 128rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #fff;
+  margin-right: 20rpx;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40rpx;
+  width: 128rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #0eaf63;
+  margin-right: 20rpx;
+  background-color: #0eaf63;
+}
+
+/* 订单大厅 */
+.master-contain {
+  width: 100%;
+  /* height: 298rpx; */
+  margin-top: 20rpx;
+  flex-direction: column;
+}
+
+.master-list-tag {
+  height: 96rpx;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #ebebeb;
+  padding-left: 45rpx;
+  padding-right: 45rpx;
+}
+
+.master-tag {
+  height: 98rpx;
+  font-size: 30rpx;
+  align-items: center;
+}
+
+.master-tag-img {
+  height: 43rpx;
+  width: 43rpx;
+  margin-right: 20rpx;
+}
+
+.right-icon {
+  height: 23rpx;
+  width: 23rpx;
+}

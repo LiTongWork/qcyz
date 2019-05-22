@@ -1,0 +1,62 @@
+<!--pages/decorateKeeper/decorateKeeper.wxml-->
+<view class='container'>
+  <view class='responsibility'>
+    <view class='title'><image src='/static/img/responsibility.png' mode='widthFix'></image></view>
+  </view>
+  <view class='content'>
+    <view class='list-item'>
+      <text class='pro'>装修预算金额3%支付,装修预算</text>
+      <view class='handle'>
+        <view class='border minus'>－</view>
+        <view class='count'><text>80000</text></view>
+        <view class='border plus'>＋</view>
+      </view>
+    </view>
+    <view class='list-item'>
+      <text class='pro'>与装修指导师自行协商费用,(选此项不用预付费用）</text>
+      <!-- <view class='handle'>
+        <view class='border minus'>－</view>
+        <view class='count'><text>100</text></view>
+        <view class='border plus'>＋</view>
+      </view> -->
+    </view>
+    <!-- 清单 -->
+    <view class='list-item'>
+      <text class='pro'>已选清单总金额</text>
+      <view class='handle'>
+        <view class='border equal'>＝</view>
+        <view class='count sum'><text>9999.99</text>元</view>
+      </view>
+    </view>
+    <!-- 说明 -->
+    <view class='notice'>
+      <view class='info'>说明</view>
+      <view class='text'>以上已包含指导师交通用，吃住费用。</view>
+    </view>
+    <!-- 开工日期 -->
+    <!-- <view class='list-item'>
+      <text class='pro'>开工日期</text>
+      <view class='handle'>
+        <view class='border minus'>－</view>
+        <view class='count'><text>03</text></view>
+        <view class='border plus'>＋</view>
+      </view>
+      <text class='pro tr'>天内完工</text>
+    </view> -->
+    <!-- 用工日期 -->
+    <view class='list-item'>
+      <text class='pro'>用工日期</text>
+      <view class='handle'>
+        <view class='border minus'>－</view>
+        <view class='count'><text>03</text></view>
+        <view class='border plus'>＋</view>
+      </view>
+      <text class='pro tr'>天内完工</text>
+    </view>
+    <!-- 下单按钮 -->
+    <view class='sub'>
+      <button>确认下单</button>
+      <view class='tips'>*为鼓励工人积极性，总工价超过9999元，请分两单下单，如此类推</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,108 @@
+/* pages/mine/comment/comment.wxss */
+.content {
+  padding: 35rpx 0;
+  width: 100%;
+  background-color: #fff;
+}
+.content .top {
+  padding-bottom: 35rpx;
+  border-bottom: 1px solid #e9e9e9;
+}
+.content .desc {
+  box-sizing: border-box;
+  padding: 0 45rpx;
+  width: 100%;
+  height: 186rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.content .desc .pic {
+  padding-bottom: 24rpx;
+  width: 186rpx;
+  border-bottom: 1px solid #e9e9e9;
+}
+.content .desc .text {
+  flex: 1;
+  padding: 0 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+.content .desc .text .title {
+  flex: 1;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.content .desc .text .rate {
+  height: 40rpx;
+  display: flex;
+}
+.content .desc .text .rate image {
+  margin-right: 6rpx;
+  width: 46rpx;
+}
+/* 评价输入 */
+.input {
+  margin: 0 auto;
+  width: 660rpx;
+  box-sizing: border-box;
+  padding: 15rpx 0;
+}
+/* 输入框 */
+.commentInput textarea {
+  width: 100%;
+  height: 260rpx;
+  line-height: 50rpx;
+  resize: none;
+}
+/* 选择照片 */
+.pics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.pics view {
+  box-sizing: border-box;
+}
+.pics .btn, .pics .list-item {
+  margin: 15rpx 15rpx 0 0;
+}
+.pics .btn {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid #e9e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.pics .btn image {
+  width: 100rpx;
+}
+.pics .list-item {
+  width: 200rpx;
+  height: 200rpx;
+  overflow: hidden;
+}
+.pics .list-item image {
+  width: 100%;
+}
+/*  发表评价按钮  */
+.sub {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 130rpx 45rpx;
+}
+.sub button {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 90rpx;
+  color: #fff;
+  background: linear-gradient(to right, #ffd100, #ffd400);
+}
+.sub button::after {
+  border: none;
+}

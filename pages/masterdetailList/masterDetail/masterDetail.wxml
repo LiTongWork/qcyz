@@ -1,0 +1,89 @@
+<!--pages/masterdetailList/masterDetail/masterDetail.wxml-->
+
+<view class='container' style='background-color:#f8f8f8'>
+  <view class='detail-contain' wx:if="{{masterTypeId!=worker}}">
+    <!-- 订单详情的细节介绍列表 -->
+    <view class='detail-list'>
+      <view class='detail-tag' wx:for-items="{{detailList}}" wx:key="{{index}}">
+        <text class='detail-l'>{{item.itemName}}</text>
+        <view class='detail-r'>
+          <text class='detail-money'>{{item.money}}</text>
+          <text class='detailYuan'>元</text>
+        </view>
+      </view>
+    </view>
+    <!-- 联系业主+实付金额 -->
+    <view class='detail-list-header'>
+      <view class='detail-tag'>
+        <view class='detail-l detail-l-tag'>
+          <image class='master-header' src='/static/img/phone.png' mode='widthFix'></image>
+          <text>联系业主</text>
+        </view>
+        <view class='detail-r-tag'>
+          <text>实付</text>
+          <text class='detail-money'>{{trueMoney}}</text>
+          <text>元</text>
+        </view>
+      </view>
+    </view>
+    <!-- 说明具体情况 -->
+    <view class='detail-list-header' style='width:750rpx;'>
+      <view class='detail-tag' style='width:680rpx; padding-left:0rpx; align-items: center;justify-content:flex-start'>
+        <text class='detail-title-text'>说明</text>
+        <text style='margin-left:20rpx;'>{{remark}}</text>
+      </view>
+    </view>
+    <!-- 开工时间 -->
+    <view class='detail-list-header'>
+      <view class='detail-tag-time'>
+        <view class='detail-time' style='margin-right:10rpx;'>开工日期
+          <text class='detail-word'>{{kaiTime}}</text> 天内开工
+        </view>
+        <view class='detail-time' style='margin-left:10rpx;'>用工日期
+          <text class='detail-word'>{{yongTime}}</text>天内开工</view>
+      </view>
+    </view>
+    <!-- 业主信息 -->
+    <view class='detail-list-header'>
+      <view class='detail-tag-btn' style='padding-left:20rpx;padding-bottom:20rpx;'>
+        <text class='detail-new'>业主信息</text>
+        <text>业主地址: {{province}}{{city}}{{area}}{{headerAd}}</text>
+        <text>业主电话: {{headerPhone}}</text>
+        <text>下单时间: {{headerTime}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='detail-contain' wx:if="{{masterTypeId==worker}}">
+    <!-- 维修工详情 -->
+    <view class='detail-list'>
+      <view class='detail-tag' wx:for-items="{{detailList}}" wx:key="{{index}}">
+        <text class='detail-l'>{{item.itemName}}</text>
+        <text class='detail-tag-r'>在线咨询</text>
+      </view>
+    </view>
+    <!-- 开工时间 -->
+    <view class='detail-list-header'>
+      <view class='detail-tag-time'>
+        <view class='detail-time' style='margin-right:10rpx;'>开工日期
+          <text class='detail-word'>{{kaiTime}}</text> 天内开工
+        </view>
+        <view class='detail-time' style='margin-left:10rpx;'>用工日期
+          <text class='detail-word'>{{yongTime}}</text>天内开工</view>
+      </view>
+    </view>
+  </view>
+  <!-- 施工转态 -->
+  <view class='monety-btn' bindtap='orderDan'>
+    <image wx:if="{{state==1}}" class='monety-btn' src='/static/img/wait.png' mode='widthFix'></image>
+    <image wx:if="{{state==2}}" class='monety-btn' src='/static/img/success.png' mode='widthFix'></image>
+  </view>
+  <!-- 在执行的上传图片 -->
+  <view wx:if="{{state==3}}||{{state==4}}" class='add-pic-tag' bindtap='goLoad'>
+    <image class='pic-show' wx:for='{{arr}}' wx:key='index' src='{{item}}' mode='widthFix'></image>
+    <view class='img-item' wx:if='{{arr.length <= 0}}'>
+      <image class='img-carmera' src='/static/img/camera.png' mode='aspectFill'></image>
+      <text wx:if="{{state==3}}">添加图片</text>
+    </view>
+  </view>
+  <view wx:if="{{state==3}}" class='sub'><button bindtap='sub'>保存图片</button></view>
+</view>

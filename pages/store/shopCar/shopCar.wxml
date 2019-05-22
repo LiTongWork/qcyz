@@ -1,0 +1,78 @@
+<!--pages/store/shopCar/shopCar.wxml-->
+<view class='container'>
+  <!-- 地址--新增 -->
+  <view wx:if="{{showAddress==0}}" class='address newAddress' bindtap='toNewAddress'>
+    <view class='icon'>
+      <image src='/static/img/icon-add.png' mode='widthFix'></image>
+    </view>
+    <view class='text'>新增地址</view>
+    <view class='right'>
+      <image src='/static/img/icon-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <!-- 地址--已有 -->
+  <view wx:if="{{showAddress==1}}" class='address' bindtap='toAddress'>
+    <view class='icon'>
+      <image src='/static/img/icon-address.png' mode='widthFix'></image>
+    </view>
+    <view class='text'>
+      <view class='info'>
+        <text class='name'>{{consigneeName}}</text>
+        <text class='phone'>{{consigneeMobile}}</text>
+      </view>
+      <view class='addContent'>{{province}},{{city}},{{area}},{{address}}</view>
+    </view>
+    <view class='right'>
+      <image src='/static/img/icon-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <!-- 订单信息 -->
+  <view class='no-tag' wx:if="{{detailData==''}}" mode='widthFix'>
+    <image class='nogoods' src='/static/img/nogoods.png'></image>
+    <text>暂无商品，请将商品加入购物车哟~</text>
+  </view>
+  <view class='order' wx:for='{{detailData}}' wx:key='index'>
+    <view class='title' catchtap='sel' data-index='{{index}}'>
+      <view class='sel'>
+        <image wx:if='{{item.status}}' src='/static/img/icon-selected.png' mode='widthFix'></image>
+        <image wx:else src='/static/img/icon-select.png' mode='widthFix'></image>
+      </view>
+      <view class='icon'>
+        <image src='/static/img/icon-store.png' mode='widthFix'></image>
+      </view>
+      <text>{{item.merchantName}}</text>
+      <image class='delate-icon' src='/static/img/delate.png' mode='widthFix' catchtap='delate' data-num='{{index}}'></image>
+    </view>
+    <view class='info'>
+      <view class='pic'>
+        <image src='{{item.goodsImg}}' mode='widthFix'></image>
+      </view>
+      <view class='desc'>
+        <view class='title'>{{item.goodsName}}</view>
+        <view class='freight'>运费：
+          <text>{{item.freight > 0 ? item.freight : '免运费'}}</text>
+        </view>
+        <view class='price'>
+          <view class='money'>￥{{item.money * item.number}}</view>
+          <view class='count'>
+            <view class='minus' bindtap='reduce' data-index='{{index}}'>－</view>
+            <view class='number'>{{item.number}}</view>
+            <view class='plus' bindtap='increase' data-index='{{index}}'>＋</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 合计，提交订单 -->
+  <view class='sub'>
+    <view class='total' bindtap='total'>
+      <image wx:if='{{totalStatus}}' src='/static/img/icon-selected.png' mode='widthFix'></image>
+      <image wx:else src='/static/img/icon-select.png' mode='widthFix'></image>
+      <text>全选</text>
+    </view>
+    <view class='sum'>合计：
+      <text>￥{{totalMoney}}</text>
+    </view>
+    <view class='btn' bindtap='orderGoods'>提交订单</view>
+  </view>
+</view>

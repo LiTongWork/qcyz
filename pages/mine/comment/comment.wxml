@@ -1,0 +1,36 @@
+<!--pages/mine/comment/comment.wxml-->
+<view class='container'>
+  <view class='content'>
+    <view class='top'>
+      <view class='desc'>
+        <view class='pic'>
+          <image src='{{headImg}}' mode='widthFix'></image>
+        </view>
+        <view class='text'>
+          <view class='title'>{{title}}</view>
+          <view class='rate'>
+            <image bindtap='clickStar' src='{{rate >=1 ? "/static/img/star.png" : "/static/img/starSel.png"}}' mode='widthFix' data-id='1'></image>
+            <image bindtap='clickStar' src='{{rate >=2 ? "/static/img/star.png" : "/static/img/starSel.png"}}' mode='widthFix' data-id='2'></image>
+            <image bindtap='clickStar' src='{{rate >=3 ? "/static/img/star.png" : "/static/img/starSel.png"}}' mode='widthFix' data-id='3'></image>
+            <image bindtap='clickStar' src='{{rate >=4 ? "/static/img/star.png" : "/static/img/starSel.png"}}' mode='widthFix' data-id='4'></image>
+            <image bindtap='clickStar' src='{{rate >=5 ? "/static/img/star.png" : "/static/img/starSel.png"}}' mode='widthFix' data-id='5'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 输入 -->
+    <view class='input'>
+      <view class='commentInput'>
+        <textarea placeholder='宝贝满足你的期待嘛，说说他的优点与美中不足吧!(5-100字)' maxlength='100' bindinput='textInput' value='{{text}}'></textarea>
+      </view>
+      <view class='pics' bindtap='uploadImage'>
+        <view class='list-item' wx:for='{{picList}}' wx:key='index'>
+          <image src='{{imgUrl + item}}' mode='widthFix'></image>
+        </view>
+        <view wx:if='{{picList.length <= 0 && isReview == "false"}}' class='btn'><image src='/static/img/camera.png' mode='widthFix'></image></view>        
+      </view>
+    </view>
+  </view>
+  <!-- 发表评价按钮 -->
+  <view wx:if='{{isReview == "false"}}' data-review='{{isReview}}' class='sub'><button bindtap='sub'>发表评价</button></view>
+</view>

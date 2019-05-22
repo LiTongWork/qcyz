@@ -1,0 +1,34 @@
+/* pages/mine/logistics/logistics.wxss */
+.list {
+  width: 100%;
+}
+.list-item {
+  padding: 35rpx 45rpx;
+  display: flex;
+  align-items: center;
+  height: 150rpx;
+  border-bottom: 1px solid #e9e9e9;
+}
+.list-item image {
+  margin-right: 25rpx;
+  width: 150rpx;
+  border-radius: 8rpx;
+}
+.list-item .desc {
+  line-height: 50rpx;
+  color: #a2a2a2;
+}
+.list-item .desc text {
+  margin-left: 10rpx;
+}
+.list-item .desc .company text {
+  color: #ffd200;
+}
+.list-item .desc .company .tel {
+  color: #1ab207;
+}
+.list-item .copyBtn {
+  margin-left: 15rpx;
+  padding: 6rpx 20rpx;
+  border: 1px solid #e9e9e9;
+}

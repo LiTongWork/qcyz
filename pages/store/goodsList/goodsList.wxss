@@ -1,0 +1,60 @@
+/* pages/store/mc/mc.wxss */
+.list {
+  width: 100%;
+  padding: 45rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.list-item {
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  width: 320rpx;
+  border: 1rpx solid #a2a2a2;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.list-item .title {
+  margin: 10rpx 0;
+  padding: 0 15rpx;
+  height: 105rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.list-item .buy {
+  padding: 5rpx 15rpx 15rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.buy .price .newPrice {
+  margin-right: 12rpx;
+  color: #ff4719;
+}
+.buy .price .newPrice text {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.buy .price .oldPrice {
+  color: #a2a2a2;
+  text-decoration: line-through;
+}
+.buy .addCar image {
+  width: 44rpx;
+}
+
+/* 暂无数据 */
+.noData {
+  height: 300rpx;
+  line-height: 300rpx;
+  color: #a2a2a2;
+}

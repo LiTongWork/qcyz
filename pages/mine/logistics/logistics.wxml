@@ -1,0 +1,14 @@
+<!--pages/mine/logistics/logistics.wxml-->
+<view class='container'>
+  <view class='list'>
+    <view class='list-item'>
+      <!-- <image src='{{item.img}}' mode='widthFix'></image> -->
+      <view class='desc'>
+        <view class='company'>物流公司：<text>{{company}}</text></view>
+        <view class='number'>物流单号：<text>{{number}}</text></view>
+        <view class='tel'><text>{{tel}}</text></view>
+      </view>
+      <view class='copyBtn' bindtap='copyNumber' data-id='{{number}}'>复制</view>
+    </view>
+  </view>
+</view>

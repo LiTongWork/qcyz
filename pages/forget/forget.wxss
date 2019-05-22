@@ -1,0 +1,90 @@
+/* pages/forget/forget.wxss */
+
+/* 背景图 */
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -9;
+  width: 100%;
+}
+/* 七彩云装 */
+.qcyz {
+  margin-top: 300rpx;
+  width: 100%;
+  display: flex;
+}
+.qcyz view {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 238rpx;
+  line-height: 238rpx;
+  text-align: center;
+}
+.qcyz view text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #ffd200;
+}
+/* 输入框 */
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 420rpx;
+  padding: 0 180rpx 0 80rpx;
+}
+.input .modify view {
+  margin-top: 90rpx;
+  border-bottom: 1px solid #e9e9e9;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.input input {
+  border: none;
+  height: 60rpx;
+  min-height: 60rpx;
+}
+/* 获取验证码 */
+.input .validation {
+  display: flex;
+}
+.input .validation input {
+  flex: 1;
+}
+.input .validation button {
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #ffd200;
+  background-color: transparent;
+  border: none;
+  font-size: 26rpx;
+}
+.input .validation button::after {
+  border: none;
+}
+.input .validation button.gray {
+  color: #a2a2a2
+}
+/* 登录注册 */
+.handle {
+  box-sizing: border-box;
+  margin-top: 50rpx;
+  padding: 0 50rpx;
+  width: 100%;
+  display: flex;
+}
+.handle.modify {
+  justify-content: flex-end;
+}
+.handle view {
+  position: relative;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 100rpx;
+  font-size: 36rpx;
+  color: #ffd200;
+  background-color: #fff;
+  box-shadow: 0 0 5rpx #dedede;
+}

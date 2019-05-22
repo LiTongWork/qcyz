@@ -1,0 +1,79 @@
+<!--pages/masterdetailList/masterOrder/masterOrder.wxml-->
+<view class='container'>
+  <!-- nav -->
+  <view class='nav'>
+    <view class='nav-item {{item.type == showFlag ? "active": " "}}' wx:for='{{nav}}' wx:key='index' data-type='{{item.type}}' data-title='{{item.label}}' bindtap='clickNavigation'>
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+  <scroll-view scroll-y wx:if="{{showFlag==0}}" style='flex-direction: column;margin-top:10rpx;height:1070rpx;justify-content: center;'>
+    <view class='masterList-list' wx:for-items="{{masterSuccess}}" wx:key="{{index}}">
+      <view class='master-p' bindtap='goDetail' data-id="{{item.id}}" data-masterid="{{item.masterTypeId}}">
+        <image class='masterList-img' src='{{item.headImg ? item.headImg : "/static/img/defaultPhoto.png"}}' mode='widthFix'></image>
+        <view class='master-list'>
+
+          <text style="font-size:30rpx;overflow:hidden" class='master-text'>{{item.nickName ? item.nickName : ''}}有个{{item.payMoney}}施工订单</text>
+
+          <view class='address-local'>
+            <image class='local-icon' src='/static/img/local-icon.png' mode='widthFix'></image>
+            <text style="font-size:24rpx;color:#bcbcbc">{{item.province + item.city + item.area}}</text>
+
+
+          </view>
+          <text style="font-size:24rpx;color:#bcbcbc">{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class='master-btn' bindtap='takeTrue' data-id='{{item.id}}' data-index='{{index}}'>
+        <text class="{{item.status==3? 'default-icon':'do-icon'}}">{{doit}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 在执行 -->
+  <scroll-view scroll-y wx:if="{{showFlag==1}}" style='flex-direction: column;margin-top:10rpx;height:1070rpx;justify-content: center;'>
+    <view class='masterList-list' wx:for-items="{{masterSuccess}}" wx:key="{{index}}">
+      <view class='master-p' bindtap='detailOfffer' data-id="{{item.id}}" data-masterid="{{item.masterTypeId}}">
+        <image class='masterList-img' src='{{item.headImg ? item.headImg : "/static/img/defaultPhoto.png"}}' mode='widthFix'></image>
+        <view class='master-list'>
+
+          <text style="font-size:30rpx;overflow:hidden">{{item.nickName ? item.nickName : ''}}有个{{item.payMoney}}施工订单</text>
+
+          <view class='address-local'>
+            <image class='local-icon' src='/static/img/local-icon.png' mode='widthFix'></image>
+
+            <text style="font-size:24rpx;color:#bcbcbc">{{item.province + item.city + item.area}}</text>
+
+          </view>
+          <text style="font-size:24rpx;color:#bcbcbc">{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class='master-btn' bindtap='readyTrue' data-id='{{item.id}}' data-index='{{index}}'>
+        <text class="{{item.status==4? 'default-icon':'do-icon'}}">{{doit}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 已完成 -->
+  <scroll-view scroll-y wx:if="{{showFlag==2}}" style='flex-direction: column;margin-top:10rpx;height:1070rpx;justify-content: center;'>
+    <view class='masterList-list' wx:for-items="{{masterSuccess}}" wx:key="{{index}}">
+      <view class='master-p' bindtap='goDetail' data-id="{{item.id}}">
+        <image class='masterList-img' src='{{item.headImg ? item.headImg : "/static/img/defaultPhoto.png"}}' mode='widthFix'></image>
+        <view class='master-list'>
+
+          <text style="font-size:30rpx;overflow:hidden">{{item.nickName ? item.nickName : ''}}有个{{item.payMoney}}施工订单</text>
+
+
+          <view class='address-local'>
+            <image class='local-icon' src='/static/img/local-icon.png' mode='widthFix'></image>
+
+            <text style="font-size:24rpx;color:#bcbcbc">{{item.province + item.city + item.area}}</text>
+
+          </view>
+          <text style="font-size:24rpx;color:#bcbcbc">{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class='master-btn' bindtap='successTrue' data-id='{{item.id}}' data-index='{{index}}'>
+        <text class="{{item.status==4? 'default-icon':'do-icon'}}">{{doit}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>

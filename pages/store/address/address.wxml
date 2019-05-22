@@ -1,0 +1,25 @@
+<!--pages/store/address/address.wxml-->
+<view class='container'>
+  <view wx:if="{{list==''}}" class='list-none'>暂无列表</view>
+  <!-- 地址列表 -->
+  <view class='address-list'>
+    <view class='address' wx:for='{{list}}' wx:key='index' data-id='{{item.id}}' data-index='{{index}}' bindtap='choose'>
+      <view class='icon'>
+        <image class='selected-icon' wx:if='{{item.status==1}}' src='/static/img/icon-selected.png' mode='widthFix'></image>
+        <image class='select-icon' wx:elif='{{item.status==0}}' src='/static/img/icon-select.png' mode='widthFix'></image>
+      </view>
+      <view class='text'>
+        <view class='info'>
+          <text class='name'>{{item.consigneeName}}</text>
+          <text class='phone'>{{item.consigneeMobile}}</text>
+        </view>
+        <view class='addContent'>{{item.province}},{{item.city}},{{item.area}}{{item.address}}</view>
+      </view>
+      <view class='right' catchtap='toEditAddress' data-id='{{item.id}}' data-status='{{item.status}}'>
+        <image src='/static/img/icon-edit.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 新增地址 -->
+  <view class='newAddress' bindtap='toNewAddress'>新增加地址</view>
+</view>

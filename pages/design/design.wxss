@@ -1,0 +1,65 @@
+/* 顶部banner广告，底部服务流程 */
+.topBanner, .serviceFlow {
+  width: 100%;
+}
+
+/* 免费预约 */
+.free {
+  box-sizing: border-box;
+  padding: 30rpx 45rpx 40rpx;
+  width: 100%;
+  background-color: #32cbdd;
+}
+.freeAppointment {
+  margin: 0 auto;
+  width: 467rpx;
+}
+form {
+  display: block;
+  width: 100%;
+}
+.item {
+  margin-top: 30rpx;
+  padding: 26rpx;
+  height: 60rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  display: flex;
+  align-items: center;
+}
+.icon .icon-position, .icon .icon-phone {
+  width: 50rpx;
+}
+.icon .icon-line {
+  margin: 0 26rpx;
+  width: 1px;
+  height: 50rpx;
+  overflow: hidden;
+}
+.item .icon-right {
+  width: 24rpx;
+}
+.item .input {
+  flex: 1;
+  font-size: 30rpx;
+}
+.input .picker text.tips {
+  color: #a2a2a2;
+}
+/* tips */
+.tips {
+  line-height: 60rpx;
+  text-align: center;
+  color: #fff;
+}
+/* 提交按钮 */
+.sub button {
+  margin-top: 25rpx;
+  color: #fff;
+  background-color: #ffd200;
+}
+

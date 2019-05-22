@@ -1,0 +1,27 @@
+<!--pages/mine/refund/refund.wxml-->
+<view class='container'>
+  <!-- 订单信息 -->
+  <view class='order' wx:for='{{detailData}}' wx:key='index'>
+    <view class='title' data-index='{{index}}'>
+      <view class='icon'><image src='/static/img/icon-store.png' mode='widthFix'></image></view>
+      <text class='store'>{{item.store}}</text>
+    </view>
+    <view class='info'>
+      <view class='pic'><image src='{{item.imgUrl[0].url}}' mode='widthFix'></image></view>
+      <view class='desc'>
+        <view class='title'>{{item.title}}</view>
+        <view class='freight'>运费：<text>{{item.freight > 0 ? item.freight : '免运费'}}</text></view>
+        <view class='price'>
+          <view class='money'>￥{{item.newPrice * item.count}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='handle'>
+      <block>
+        <view class='cancel'>退款</view>
+      </block>
+    </view>
+  </view>
+</view>
+
+

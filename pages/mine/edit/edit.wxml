@@ -1,0 +1,27 @@
+<!--pages/mine/edit/edit.wxml-->
+<view class='container'>
+   <view class='list-item avatar' >
+      <view class='item'>头像</view>
+      <view class='input avatar-input'><image src='{{avatar}}' mode='widthFix'></image></view>
+      <!-- <view class='right'> <image src='/static/img/icon-right.png' mode='widthFix'></image> </view> -->
+    </view>
+    <view class='list-item nickName'>
+      <view class='item'>昵称</view>
+      <view class='input'> 
+        <!-- <input name="nickName" placeholder="请输入昵称(2-6位)" value='{{nickName}}' bindinput='nickNameInput' /> -->
+        <text>{{nickName}}</text>
+       </view>
+      <!-- <view class='right'> <image src='/static/img/icon-right.png' mode='widthFix'></image> </view> -->
+    </view>
+    <view class='list-item name'>
+      <view class='item'>姓名</view>
+      <view class='input'> <input name="name" placeholder="请输入姓名" value='{{name}}' bindinput='nameInput'/> </view>
+      <!-- <view class='right'> <image src='/static/img/icon-right.png' mode='widthFix'></image> </view> -->
+    </view>
+    <view class='list-item mobile'>
+      <view class='item'>电话</view>
+      <view class='input'> <input name="mobile" placeholder="请输入电话" type='number' value='{{mobile}}' bindinput='mobileInput'/> </view>
+      <view class='right'> <image src='/static/img/icon-right.png' mode='widthFix'></image> </view>
+    </view>
+    <view class='sub'> <button bindtap='sub'>保存修改</button> </view>
+</view>

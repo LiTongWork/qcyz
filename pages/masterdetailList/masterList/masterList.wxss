@@ -1,0 +1,40 @@
+/* pages/masterdetailList/masterList/masterList.wxss */
+view {
+  display: flex;
+}
+.masterList-list {
+  height: 151rpx;
+  width: 651rpx;
+  background-color: #fff;
+  margin-top: 25rpx;
+  border-radius: 8rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.masterList-img {
+  height: 96rpx;
+  width: 96rpx;
+  margin-right: 20rpx;
+  align-self: center;
+}
+.address-local {
+  align-items: center;
+}
+.local-icon {
+  height: 20rpx !important;
+  width: 20rpx;
+  margin-left: 10rpx;
+}
+.master-list {
+  flex-direction: column;
+  justify-content: center;
+  line-height: 180%;
+}
+.master-btn {
+  height: 40rpx;
+  width: 128rpx;
+  align-items: center;
+  justify-content: center;
+}

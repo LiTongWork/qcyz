@@ -1,0 +1,60 @@
+/* pages/masterdetailList/masterMoney/masterMoney.wxss */
+
+view {
+  display: flex;
+}
+
+.money-tag {
+  width: 750rpx;
+  height: 194rpx;
+  flex-direction: column;
+  background-color: #fff;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.money-item {
+  height: 150rpx;
+  padding-left: 45rpx;
+  padding-right: 45rpx;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+}
+
+.money-input {
+  height: 150rpx;
+  align-items: center;
+  font-size: 35rpx;
+  padding-left: 45rpx;
+}
+
+.all-money {
+  align-items: center;
+  padding-left: 45rpx;
+  font-size: 22rpx;
+  color: #a2a2a2;
+}
+
+/* 底部体现按钮 */
+
+.monety-btn {
+  height: 93rpx;
+  width: 656rpx;
+  background: -webkit-linear-gradient(left, #ffd200, #ffb400);
+  background: -o-linear-gradient(left, #ffd200, #ffb400);
+  background: -mos-linear-gradient(left, #ffd200, #ffb400);
+  background: -moz-linear-gradient(left, #ffd200, #ffb400);
+  background: linear-gradient(left, #ffd200, #ffb400);
+  align-items: center;
+  justify-content: center;
+  border-radius: 45rpx;
+}
+.true-btn {
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  font-size: 35rpx;
+  color: #fff;
+}

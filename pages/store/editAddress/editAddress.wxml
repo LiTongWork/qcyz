@@ -1,0 +1,40 @@
+<!--pages/store/editAddress/editwxml-->
+<view class='container'>
+  <view class='content-list'>
+    <view class='list-item name'>
+      <view class='item'>姓名</view>
+      <view class='input'><input type='text' placeholder='请输入姓名' value='{{consigneeName}}' bindinput='changeName'/></view>
+    </view>
+    <view class='list-item phone'>
+      <view class='item'>手机号码</view>
+      <view class='input'><input type='number' placeholder='请输入手机号码' value='{{consigneeMobile}}' bindinput='changePhone'/></view>
+    </view>
+    <view class='list-item region'>
+      <view class='item'>选择地区</view>
+      <view class='input'>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">
+              <text wx:if='{{!regionStatus}}' class='tips'>请选择地址</text>
+              <text wx:else>{{region.value[0]}},{{region.value[1]}},{{region.value[2]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='list-item detailAddress'>
+      <view class='item'>详细地址</view>
+      <view class='input'><textarea auto-height='true' placeholder-class='placeholder' placeholder='街道门牌信息' value='{{detailAddress}}' bindinput='changeAllad'></textarea></view>
+    </view>
+    <!-- <view class='list-item zip'>
+      <view class='item'>邮政编码</view>
+      <view class='input'><input type='number' placeholder='邮政编码' value='{{zip}}' bindinput='changeYoubian'/></view>
+    </view> -->
+  </view>
+  <view class='default-address' bindtap='setDefaultAddress'>
+    <text>是否设置为默认地址</text>
+    <image class='selected-icon' wx:if='{{status}}' src='/static/img/icon-selected.png' mode='widthFix'></image>
+    <image class='select-icon' wx:elif='{{!status}}' src='/static/img/icon-select.png' mode='widthFix'></image>
+  </view>
+  <view class='handle' bindtap='addBtn'>
+    <button class='save-address' size='mini'>保存</button>
+  </view>
+</view>

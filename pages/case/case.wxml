@@ -1,0 +1,10 @@
+<!--pages/case/case.wxml-->
+<view class='container'>
+  <view class='list' wx:if='{{list.length > 0}}'>
+    <view class='list-item' wx:for='{{list}}' wx:key='index'>
+      <image src='{{imgUrl + item.img}}'></image>
+      <text class='title'>{{item.tilte}}</text>
+    </view>
+  </view>
+  <view class='noData' wx:else>暂无数据</view>
+</view>

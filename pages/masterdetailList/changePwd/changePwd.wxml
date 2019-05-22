@@ -1,0 +1,19 @@
+<!--pages/masterdetailList/changePwd/changePwd.wxml-->
+<view class='container' style='background-color:#f8f8f8;'>
+<!-- 登陆密码重置 -->
+  <view class='master-list-tag' style='margin-top:30rpx;'>
+    <view class='master-tag'>
+      <text>原密码</text>
+      <input class='input-text' type='number' value='{{before}}' auto-focus bindinput='beforePwd' placeholder='请输入原密码'></input>
+    </view>
+  </view>
+  <view class='master-list-tag'>
+    <view class='master-tag'>
+      <text>新密码</text>
+      <input class='input-text' type='number' value='{{now}}' auto-focus bindinput='nowPwd' placeholder='请输入新密码'></input>
+    </view>
+  </view>
+  <view class='monety-btn' bindtap='baoBtn'>
+    <text class='true-btn'>确认提现</text>
+  </view>
+</view>

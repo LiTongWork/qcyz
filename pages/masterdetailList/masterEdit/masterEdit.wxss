@@ -1,0 +1,98 @@
+/* pages/masterdetailList/masterEdit/masterEdit.wxss */
+
+view {
+  display: flex;
+}
+
+.edit-header {
+  height: 176rpx;
+  width: 750rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.edit-pic {
+  height: 140rpx;
+  width: 140rpx;
+  background-color: #f8f8f8;
+  margin-left: 45rpx;
+  margin-right: 30rpx;
+}
+
+/* 姓名列表 */
+
+.input-tag {
+  font-size: 30rpx;
+  width: 750rpx;
+  height: 98rpx;
+  background-color: #fff;
+  align-items: center;
+  border-bottom: 1rpx solid #e9e9e9;
+}
+
+.input-item {
+  flex: 3;
+}
+
+.input-text {
+  font-size: 28rpx;
+  flex: 1;
+}
+
+.right-icon {
+  height: 23rpx;
+  width: 23rpx;
+  margin-right: 45rpx;
+}
+
+/* 工种选择 */
+
+.sigle-select {
+  flex: 3;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  line-height: 160%;
+}
+
+.sigle-select-tag {
+  flex-wrap: wrap;
+  width: 25%;
+  color: #a2a2a2;
+  font-size: 22rpx;
+  align-items: center;
+}
+
+.default-select {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+}
+
+/* 底部保存按钮 */
+.monety-btn {
+  height: 93rpx;
+  width: 656rpx;
+  background: -webkit-linear-gradient(left, #ffd200, #ffb400);
+  background: -o-linear-gradient(left, #ffd200, #ffb400);
+  background: -mos-linear-gradient(left, #ffd200, #ffb400);
+  background: -moz-linear-gradient(left, #ffd200, #ffb400);
+  background: linear-gradient(left, #ffd200, #ffb400);
+  align-items: center;
+  justify-content: center;
+  border-radius: 45rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.true-btn {
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  font-size: 35rpx;
+  color: #fff;
+}

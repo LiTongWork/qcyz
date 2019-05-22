@@ -1,0 +1,34 @@
+<!--pages/master/master.wxml-->
+<view class='container'>
+<!-- 头部banner -->
+  <view class='banner'>
+    <image src='{{bannerUrl}}' mode='widthFix'></image>
+  </view>
+  <!-- 导航nav -->
+  <view class='nav'>
+    <view class='nav-item' wx:for='{{nav}}' wx:key='index' data-title='{{item.name}}' data-id='{{item.id}}' bindtap='toMaster'>
+      <view class='img-box'><image src='{{"/static/img/masterNav" + (index+1) + ".png"}}' mode='widthFix'></image></view>
+      <view class='text'>{{item.name}}</view>
+    </view>
+  </view>
+  <!-- 列表展示 -->
+  <view class='list'>
+    <view class='title'>季度劳模</view>
+    <view class='list-item' wx:for='{{listData}}' wx:key='index' data-id='{{item.id}}'>
+        <view class='photo'><image src='{{item.headImg ? item.headImg : "/static/img/defaultPhoto.png"}}' mode='widthFix'></image></view>
+        <view class='info'>
+          <view class='name'>姓名： <text>{{item.name}}</text></view>
+          <view class='add'>地址： <text>{{item.address ? item.address : ''}}</text></view>
+          <view class='orderNum'>已接单： <text>{{item.haveNumber}}</text></view>
+          <view class='rate'>
+            <image wx:for='{{item.avgScore}}' wx:key='index' src='/static/img/star.png' mode='widthFix'></image>
+          </view>
+        </view>
+    </view>
+  </view>
+  <!-- 投诉与裁判 -->
+  <!-- <view class='feedback'>
+    <view class='complain'>我要投诉</view>
+    <view class='judge'>质量争议第三方裁判</view>
+  </view> -->
+</view>

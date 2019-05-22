@@ -1,0 +1,147 @@
+/* pages/masterdetailList/masterOrder/masterOrder.wxss */
+
+view {
+  display: flex;
+}
+
+/* 顶部导航 */
+
+.nav {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-item text {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #fff;
+}
+
+.nav-item.active text {
+  color: #ffd200;
+  border-bottom: 1px solid #ffd200;
+}
+
+/* 已接单 */
+
+.masterList-list {
+  height: 151rpx;
+  background-color: #fff;
+  margin-top: 25rpx;
+  border-radius: 8rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 45rpx;
+  margin-right: 45rpx;
+  z-index: 1000;
+}
+
+.masterList-img {
+  height: 96rpx;
+  width: 96rpx;
+  margin-right: 20rpx;
+  align-self: center;
+}
+
+.address-local {
+  align-items: center;
+}
+
+.master-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.local-icon {
+  height: 20rpx !important;
+  width: 20rpx;
+  margin-left: 10rpx;
+}
+
+.master-list {
+  flex-direction: column;
+  justify-content: center;
+  line-height: 180%;
+}
+
+.master-btn {
+  height: 40rpx;
+  width: 128rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.do-icon {
+  display: flex;
+  height: 40rpx;
+  width: 128rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rpx;
+  background-color: #ffd200;
+  color: #fff;
+  border-radius: 8rpx;
+}
+
+.default-icon {
+  display: flex;
+  height: 40rpx;
+  width: 128rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rpx;
+  background-color: #e9e9e9;
+  color: #fff;
+  border-radius: 8rpx;
+}
+
+/* 在执行 */
+
+.show-tag {
+  height: 701rpx;
+  width: 750rpx;
+  background-color: #fff;
+  flex-direction: column;
+}
+
+.show-pic {
+  height: 394rpx;
+  width: 658rpx;
+  justify-content: center;
+  background-color: #e9e9e9;
+  align-self: center;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.add-pic {
+  height: 189rpx;
+  width: 189rpx;
+  border: 1rpx solid #e9e9e9;
+  flex-direction: column;
+  margin-left: 47rpx;
+  margin-top: 10rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #a2a2a2;
+}
+
+.camera-pic {
+  height: 60rpx;
+  width: 74rpx;
+}
+
+/* 已完成 */

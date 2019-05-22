@@ -1,0 +1,191 @@
+/**index.wxss**/
+.container {
+  overflow-x: hidden;
+}
+/* 搜索导航栏 */
+.head-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  box-sizing: border-box;
+  padding: 0 45rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  background-color: rgba(0, 0, 0, .1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.head-nav .search {
+  margin: 14rpx 20rpx;
+  flex: 1;
+  height: 52rpx;
+  background-color: #fff;
+  border-radius: 52rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.head-nav .search icon {
+  margin-left: 10rpx;
+  width: 52rpx;
+  height: 52rpx;
+  text-align: center;
+}
+.head-nav .search input {
+  flex: 1;
+  padding-right: 30rpx;
+}
+.head-nav .car {
+  font-size: 0;
+  width: 40rpx;
+  height: 40rpx;
+}
+.head-nav .car image{
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 顶部轮播banner */
+.banner {
+  width: 100%;
+  height: 380rpx;
+  /* background-color: #ffd200; */
+}
+swiper {
+  width: 100%;
+  height: 100%;
+}
+swiper .wx-swiper-dot {
+  width: 20rpx;
+  height: 20rpx;
+}
+/* 商城导航nav */
+.nav {
+  padding: 26rpx 0 30rpx 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-item {
+  margin-top: 24rpx;
+  flex: 0 1 25%;
+  width: 25%;
+  text-align: center;
+}
+.nav-item .img-box {
+  margin: 0 auto;
+  display: block;
+  width: 78rpx;
+  height: 78rpx;
+}
+.nav-item .text {
+  display: block;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 中部广告 */
+.storeAd {
+  padding: 30rpx 42rpx;
+  width: 100%;
+  background-color: #fff;
+}
+/* 底部商品列表 */
+.hot {
+  padding: 0 45rpx 50rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+.hot .title {
+  padding: 20rpx 0;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.hot .title .line {
+  flex: 1;
+  height: 2rpx;
+  background-color: #3d3c3c;
+}
+.hot .title .text {
+  padding: 0 25rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.list-item {
+  margin-top: 25rpx;
+  height: 202rpx;
+  display: flex;
+}
+.list-item .pic {
+  width: 202rpx;
+  height: 202rpx;
+}
+.list-item .pic image {
+  width: 100%;
+  height: 100%;
+}
+.list-item .info {
+  padding-left: 15rpx;
+  flex: 1;
+}
+.list-item .info .title {
+  padding: 0;
+  height: 72rpx;
+  line-height: 36rpx;
+  font-weight: bold;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.list-item .info .desc {
+  height: 72rpx;
+  line-height: 36rpx;
+  font-size: 22rpx;
+  color: #a2a2a2;
+  display: -webkit-box;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.list-item .info .price {
+  height: 58rpx;
+  font-size: 24rpx;
+}
+.info .price .newPrice {
+  margin-right: 12rpx;
+  color: #ff4719;
+}
+.info .price .newPrice text {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.info .price .oldPrice {
+  color: #a2a2a2;
+  text-decoration: line-through;
+}
+.info .price .buy {
+  padding: 0 22rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #fff;
+  background-color: #ff4719;
+  border-radius: 50rpx;
+}

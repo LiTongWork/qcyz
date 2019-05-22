@@ -1,0 +1,31 @@
+<!--pages/store/tenants/tenants.wxml-->
+<view class='container'>
+  <view class='list'>
+    <view class='list-item name'>
+      <text class='title'>商家名称</text>
+      <view class='input'><input placeholder='请输入商家名称' bindinput='nameInput' value='{{name}}'/></view>
+    </view>
+    <view class='list-item phone'>
+      <text class='title'>联系电话</text>
+      <view class='input'><input type='number' placeholder='请输入联系电话' bindinput='phoneInput' value='{{phone}}'/></view>
+    </view>
+    <view class='list-item category'>
+      <text class='title'>商品类别</text>
+      <view class='input'>
+        <view class='select' wx:for='{{category}}' wx:key='index' data-id='{{item.id}}' data-index='{{index}}' bindtap='choose'>
+          <image wx:if='{{item.status}}' src='/static/img/icon-selected.png' mode='widthFix'></image>
+          <image wx:else src='/static/img/icon-select.png' mode='widthFix'></image>
+          <text>{{item.dicName}}</text>
+        </view>
+        <!-- <view class='select' data-id='00000000-0000-0000-0000-000000000000' data-index='8' bindtap='choose'>
+          <image wx:if='{{item.status}}' src='/static/img/icon-selected.png' mode='widthFix'></image>
+          <image wx:else src='/static/img/icon-select.png' mode='widthFix'></image>
+          <text>其他</text>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class='sub'>
+    <button bindtap='sub'>提交审核</button>
+  </view>
+</view>

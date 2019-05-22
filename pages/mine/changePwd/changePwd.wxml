@@ -1,0 +1,16 @@
+<!--pages/changePwd/changePwd.wxml-->
+<view class='container'>
+  <view class='list-item'>
+    <view class='item'>旧密码</view>
+    <view class='input'> <input password placeholder="请输入旧密码" value='{{oldPwd}}' bindinput='oldPwdInput'/> </view>
+  </view>
+  <view class='list-item'>
+    <view class='item'>新密码</view>
+    <view class='input'> <input password placeholder="请输入新密码" value='{{newPwd}}' bindinput='newPwdInput'/> </view>
+  </view>
+  <view class='list-item'>
+    <view class='item'>确认新密码</view>
+    <view class='input'> <input password placeholder="请确认新密码" value='{{confirmPwd}}' bindinput='confirmInput'/> </view>
+  </view>
+  <view class='sub'> <button bindtap='sub'>保存修改</button> </view>
+</view>

@@ -1,0 +1,30 @@
+<!--pages/forget/forget.wxml-->
+<view class='container'>
+  <!-- 整体背景图 -->
+  <image class='bg' src='/static/img/loginBg.jpg' mode='widthFix'></image>
+  <!-- 七彩云装 -->
+  <view class='qcyz'>
+    <view><text>七彩云装</text></view>
+  </view>
+  <view class='input'>
+    <!-- 修改密码 -->
+    <view class='modify'>
+      <view class='phone'>
+        <input type='number' placeholder='请输入手机号码' bindinput='phoneInput' value='{{phone}}'></input>
+      </view>
+      <view class='validation'>
+        <input placeholder='请输入验证码' bindinput='codeInput' value='{{code}}'></input>
+        <button bindtap='getCode' disabled='{{getCodeClicked}}' class='{{getCodeClicked==true?"gray":""}}'>{{getCode}}</button>
+      </view>
+      <view class='pwd'>
+        <input type='password' maxlength='18' placeholder='重置密码(6-18位)' bindinput='pwdInput' value='{{pwd}}'></input>
+      </view>
+    </view>    
+  </view>
+  <!-- 登录 -->
+  <view class='handle modify'>
+    <view class='modifyBtn' bindtap='sub'>
+      <text>修改</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<!--pages/service/service.wxml-->
+<view class='container'>
+  <view class='logo'>
+    <image src='{{logo}}' mode='widthFix'></image>
+  </view>
+  <button open-type="contact">联系客服</button>
+</view>

@@ -1,0 +1,87 @@
+<view class='container'>
+  <view class='responsibility' wx:if='{{masterType == "装修管家"}}'>
+    <view class='title'><image src='/static/img/responsibility.png' mode='widthFix'></image></view>
+  </view>
+  <view wx:if='{{masterType != "维修工"}}' class='list-item' wx:for='{{content}}' wx:key='index'>
+    <text class='pro'>{{item.itemName}}</text>
+    <view class='handle'>
+      <view class='border minus' bindtap='minusInput' data-index='{{index}}'>－</view>
+      <view class='count'> <input type='number' data-index='{{index}}' bindinput='countInput' placeholder='0' value='{{item.count}}'/> </view>
+      <view class='border plus' bindtap='plusInput' data-index='{{index}}'>＋</view>
+    </view>
+  </view>
+  <!-- 维修工不一样 -->
+  <view wx:if='{{masterType == "维修工"}}' class='list-item' wx:for='{{content}}' wx:key='index'>
+    <text class='pro'>{{item.itemName}}</text>
+    <view class='consulting'>在线咨询</view>
+  </view>
+  <!-- tips -->
+  <!-- <view class='tips'>*{{tips}}</view> -->
+  <!-- 金额 -->
+  <view wx:if='{{masterType != "维修工"}}' class='list-item'>
+    <text class='pro'>已选清单总金额</text>
+    <view class='handle'>
+      <view class='border equal'>＝</view>
+      <view class='count sum'><text>{{totalMoney}}</text>元</view>
+    </view>
+  </view>
+  <!-- 说明 -->
+  <view wx:if='{{masterType != "维修工" && remark != " "}}' class='notice'>
+    <view class='info'><text>说明</text></view>
+    <view class='desc'><text>{{remark}}</text></view>
+  </view>
+  <!-- 开工日期 -->
+   <view class='list-item'>
+    <text class='pro'>开工日期</text>
+    <view class='handle'>
+      <view class='border minus' bindtap='startTimeMinus'>－</view>
+      <view class='count'><input type='number' placeholder='0' bindinput='startTimeInput' value='{{startTime}}'/></view>
+      <view class='border plus' bindtap='startTimePlus'>＋</view>
+    </view>
+    <text class='pro tr'>天内完工</text>
+  </view>
+  <!-- 用工日期 -->
+   <view class='list-item'>
+    <text class='pro'>用工日期</text>
+    <view class='handle'>
+      <view class='border minus' bindtap='useTimeMinus'>－</view>
+      <view class='count'><input type='number' placeholder='0' bindinput='useTimeInput' value='{{useTime}}'/></view>
+      <view class='border plus' bindtap='useTimePlus'>＋</view>
+    </view>
+    <text class='pro tr'>天内完工</text>
+  </view>
+  <!-- 选择地址 -->
+  <view class='address'>
+    <view class='add-item region'>
+      <view class='item'>选择地区</view>
+      <view class='input'>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">
+            <text wx:if='{{!regionStatus}}' class='tips'>请选择地址</text>
+            <text wx:else>{{region.value[0]}}{{region.value[1]}}{{region.value[2]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='add-item detailAddress'>
+      <view class='item'>详细地址</view>
+      <view class='input'>
+        <textarea auto-height='true' value='{{detailAddress}}' bindinput='detailAddInput'></textarea>
+      </view>
+    </view>
+    <!-- 选择优惠券 -->
+    <view class='add-item selCoupons'>
+      <view class='item'>使用优惠券</view>
+      <view class='input' bindtap='toCoupons' data-money='{{totalMoney}}'>
+        <text>{{selCouponsId != '' ? '已选择' : '未选择'}}</text>
+      </view>
+      <view class='right'><image src='/static/img/icon-right.png' mode='widthFix'></image></view>
+    </view>
+  </view>
+
+  <!-- 下单按钮 -->
+  <view class='sub'>
+    <button bindtap='sub'>确认下单</button>
+    <view class='tips'>*为鼓励工人积极性，总工价超过9999元，请分两单下单，如此类推</view>
+  </view>
+</view>

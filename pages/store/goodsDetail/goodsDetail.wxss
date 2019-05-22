@@ -1,0 +1,97 @@
+/* pages/store/goodsDetail/goodsDetail.wxss */
+.banner {
+  width: 100%;
+}
+.banner swiper {
+  height: 750rpx;
+}
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+.content {
+  padding: 0 45rpx 100rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.title {
+  margin-top: 15rpx;
+  line-height: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.price {
+  line-height: 70rpx;
+}
+.price .newPrice {
+  margin-right: 12rpx;
+  color: #ff4719;
+}
+.price .newPrice text {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.price .oldPrice {
+  color: #a2a2a2;
+  text-decoration: line-through;
+}
+.freight {
+  line-height: 70rpx;
+  color: #a2a2a2;
+}
+.freight text {
+  margin-left: 10rpx;
+}
+.comments .title {
+  line-height: 70rpx;
+  font-size: 26rpx;
+  font-weight: normal;
+}
+
+.subOrder {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  height: 98rpx;
+  border-top: 1px solid #e9e9e9;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.subOrder view {
+  text-align: center;
+  height: 100%;
+}
+.subOrder .line {
+  width: 1px;
+  height: 70rpx;
+  overflow: hidden;
+}
+.subOrder .service, .subOrder .shopCar {
+  flex: 0 0 140rpx;
+  width: 140rpx;
+}
+.subOrder .service image, .subOrder .shopCar image {
+  margin: 9rpx auto 0;
+  width: 40rpx;
+}
+.subOrder text {
+  display: block;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.subOrder .addCar, .subOrder .buy {
+  line-height: 98rpx;
+  flex: 1;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.subOrder .addCar {
+  background-color: #3c3c3c;
+}
+.subOrder .buy  {
+  background-color: #ffd200;
+}

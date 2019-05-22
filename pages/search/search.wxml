@@ -1,0 +1,23 @@
+<!--pages/search/search.wxml-->
+<view class='container'>
+    <!-- 搜索 -->
+  <view class='head-nav'> 
+    <view class='search'>
+      <icon type='search' size='30rpx' bindtap='listSearch'></icon>
+      <input confirm-type='search' bindconfirm='listSearch' bindinput='searchInput' placeholder='请输入商品名称' value='{{searchName}}'></input>
+    </view>
+  </view>
+  <view wx:if='{{listData.length > 0}}' class='list'>
+    <view class='list-item' wx:for='{{listData}}' wx:key='index' data-title='{{item.title}}' data-id='{{item.id}}' bindtap='toGoodsDetail'>
+      <image src='{{item.goodsImg}}' mode='widthFix'></image>
+      <view class='title'>{{item.goodsName}}</view>
+      <view class='buy'>
+        <view class='price'>
+          <text class='newPrice'>￥<text>{{item.money}}</text></text>
+          <text class='oldPrice'>￥{{item.originalPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view> 
+  <view wx:else class='noData'>暂无数据</view>
+</view>
