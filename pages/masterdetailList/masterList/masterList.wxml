@@ -1,5 +1,6 @@
 <!--pages/masterdetailList/masterList/masterList.wxml-->
 <view class='container' style='background-color:#f8f8f8'>
+  <view wx:if="{{masterList==''}}" style='color:#bcbcbc;justify-content: center;align-items: center;marhin-top:300rpx;'>暂无数据</view>
   <block wx:for-items="{{masterList}}" wx:key="{{index}}">
     <view class='masterList-list'>
       <view class='master-p' bindtap='masterDetail' data-id="{{item.id}}" data-masterid="{{item.masterTypeId}}">

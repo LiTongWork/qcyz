@@ -18,7 +18,7 @@
   width: 630rpx;
 }
 .list-item .pro {
-  flex: 1;
+  flex:  0 0 auto;
   padding: 0 20rpx;
   line-height: 40rpx;
   /* overflow: hidden;
@@ -53,12 +53,38 @@
   width: 156rpx;
   /* font-size: 20rpx; */
 }
+picker view {
+  text-align: right;
+}
+/* 如果是清洁工，日期要变化 */
+.handle.qjg {
+  flex: 1;
+  padding: 0 20rpx;
+}
+.handle.qjg view {
+  width: 100%;
+  border: none;
+  text-align: right;
+}
+
 /* 如果为维修工，则是在线咨询 */
 .list-item .consulting {
+  /* padding: 0 34rpx; */
+  /* line-height: 60rpx; */
+  /* color: #fff; */
+  /* background-color: #ffd200; */
+}
+.list-item .consulting button {
   padding: 0 34rpx;
+  height: 60rpx;
   line-height: 60rpx;
+  font-size: 30rpx;
   color: #fff;
   background-color: #ffd200;
+  border-radius: 2rpx;
+}
+.list-item .consulting button::after {
+  border: none;
 }
 /* 小字提示 */
 .tips {
@@ -115,6 +141,7 @@
   resize: none;
   min-height: 60rpx;
   line-height: 60rpx;
+  text-align: right;
 }
 .input .picker text.tips {
   color: #a2a2a2;

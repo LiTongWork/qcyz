@@ -6,7 +6,7 @@ view {
 
 .money-tag {
   width: 750rpx;
-  height: 194rpx;
+  height: 300rpx;
   flex-direction: column;
   background-color: #fff;
   margin-top: 40rpx;

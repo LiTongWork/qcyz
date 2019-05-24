@@ -13,7 +13,7 @@
   <!-- 维修工不一样 -->
   <view wx:if='{{masterType == "维修工"}}' class='list-item' wx:for='{{content}}' wx:key='index'>
     <text class='pro'>{{item.itemName}}</text>
-    <view class='consulting'>在线咨询</view>
+    <view class='consulting'><button open-type="contact">联系客服</button></view>
   </view>
   <!-- tips -->
   <!-- <view class='tips'>*{{tips}}</view> -->
@@ -32,23 +32,30 @@
   </view>
   <!-- 开工日期 -->
    <view class='list-item'>
-    <text class='pro'>开工日期</text>
-    <view class='handle'>
+    <text class='pro'>{{masterType == '清洁工' ? '开工日期（年月日时）' : '开工日期' }}</text>
+    <view class='handle' wx:if='{{masterType != "清洁工"}}'>
       <view class='border minus' bindtap='startTimeMinus'>－</view>
       <view class='count'><input type='number' placeholder='0' bindinput='startTimeInput' value='{{startTime}}'/></view>
       <view class='border plus' bindtap='startTimePlus'>＋</view>
     </view>
-    <text class='pro tr'>天内完工</text>
+    <view class='handle qjg' wx:if='{{masterType == "清洁工"}}'>
+      <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+        <view class="tui-picker-detail">
+          {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}
+        </view>
+      </picker>    
+    </view>
+    <text class='pro tr' wx:if='{{masterType != "清洁工"}}'>天内完工</text>
   </view>
   <!-- 用工日期 -->
    <view class='list-item'>
-    <text class='pro'>用工日期</text>
+    <text class='pro'>{{masterType == '清洁工' ? '用工时间约（/小时）' : '用工日期' }}</text>
     <view class='handle'>
       <view class='border minus' bindtap='useTimeMinus'>－</view>
       <view class='count'><input type='number' placeholder='0' bindinput='useTimeInput' value='{{useTime}}'/></view>
       <view class='border plus' bindtap='useTimePlus'>＋</view>
     </view>
-    <text class='pro tr'>天内完工</text>
+    <text class='pro tr' wx:if='{{masterType != "清洁工"}}'>天内完工</text>
   </view>
   <!-- 选择地址 -->
   <view class='address'>

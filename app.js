@@ -41,8 +41,8 @@ App({
   globalData: {
     // hasAuthorization: false,
     userInfo: {},
-    // baseURL: 'http://47.94.172.208:1009',
-    baseURL: 'https://xwxapi.itknow.cn',
+    baseURL: 'http://47.94.172.208:1009',
+    // baseURL: 'https://xwxapi.itknow.cn',
     imgUrl: 'http://47.94.172.208:1009/File/ShowImg?fileName=',
     regionString: null,
     appid: 'wx7c61a7b28c2f5b54',
@@ -136,7 +136,7 @@ App({
         status: status
       },
       success(res) {
-        console.log("施工状态已更新")
+        console.log("施工状态已更新",res.data.data.state)
       }
     })
   },

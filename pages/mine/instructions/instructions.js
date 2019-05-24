@@ -1,11 +1,13 @@
 // pages/mine/instructions/instructions.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img: '/static/img/instructions.jpg'
+    imgUrl: app.globalData.imgUrl,
+    img: '20190524165913.jpg'
   },
 
   /**

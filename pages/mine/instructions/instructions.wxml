@@ -1,4 +1,4 @@
 <!--pages/mine/instructions/instructions.wxml-->
 <view class='container'>
-  <image src='{{img}}' mode='widthFix'></image>
+  <image src='{{imgUrl + img}}' mode='widthFix'></image>
 </view>

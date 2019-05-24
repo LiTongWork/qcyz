@@ -19,8 +19,8 @@
           <text wx:elif="{{i.status==3}}">交易成功</text>
         </view>
       </view>
-      <view class='info' wx:for="{{goodsList}}" wx:key='index' wx:for-item="j">
-        <view class='pic'><image src='{{j.goodsImg}}' mode='widthFix'></image></view>
+      <view class='info' wx:for="{{i.goodsList}}" wx:key='index' wx:for-item="j">
+        <view class='pic'><image src='{{imgUrl + j.goodsImg}}' mode='widthFix'></image></view>
         <view class='desc'>
           <view class='title'>{{j.goodsName}}</view>
           <view class='freight'>运费：<text>{{i.freight > 0 ? i.freight : '免运费'}}</text></view>

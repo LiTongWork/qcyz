@@ -69,6 +69,12 @@ Page({
       },
       {
         img: '/static/img/icon-finshed.png',
+        label: '待确认',
+        type: 6,
+        count: ''
+      },
+      {
+        img: '/static/img/icon-evaluation1.png',
         label: '待评价',
         type: 4,
         count: ''
@@ -130,7 +136,8 @@ Page({
             'workList[1].count': res.data.workPay,
             'workList[2].count': res.data.workOrder,
             'workList[3].count': res.data.workBusy,
-            'workList[4].count': res.data.workComplete
+            'workList[4].count': res.data.workConfirm,
+            'workList[5].count': res.data.workComplete
           })
         }
       })
@@ -150,20 +157,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
 
   },
 

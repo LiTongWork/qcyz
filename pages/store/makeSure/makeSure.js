@@ -124,6 +124,15 @@ Page({
     var that = this
     let baseUrl = app.globalData.baseURL;
     console.log('that.data.number', that.data.number)
+    if(that.data.address==""){
+      wx.showToast({
+        title: '地址不能为空',
+        icon: 'none',
+        mask: true,
+        duration: 1500
+      })
+      return false
+    }
     let goodsChecked = {
       GoodsId: that.data.goodid,
       number: that.data.number
@@ -153,9 +162,28 @@ Page({
           signType: 'MD5',
           paySign: res.data.data.data.sign,
           success(res) {
-            console.log("=====")
+            wx.showToast({
+              title: '商品购买成功',
+              icon: 'success',
+              mask: true,
+              duration: 3000
+            })
+            wx.switchTab({
+              url: '/pages/mine/mine'
+            })
           },
-          fail(res) {}
+          fail(res) {
+            console.log("=====")
+            wx.showToast({
+              title: '商品购买失败',
+              icon: 'none',
+              mask: true,
+              duration: 3000
+            })
+            wx.switchTab({
+              url: '/pages/mine/mine'
+            })
+          }
         })
       }
     })

@@ -42,8 +42,8 @@ view {
   align-items: center;
   padding-left: 20rpx;
   padding-right: 20rpx;
-  margin-left: 45rpx;
-  margin-right: 45rpx;
+  /* margin-left: 45rpx;
+  margin-right: 45rpx; */
   z-index: 1000;
 }
 

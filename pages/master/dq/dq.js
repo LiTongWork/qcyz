@@ -1,5 +1,6 @@
 // pages/master/dq/dq.js
 const $http = require('../../../utils/config.js');
+const dateTimePicker = require('../../../utils/dateTimePicker.js');
 const app = getApp();
 Page({
 
@@ -19,7 +20,11 @@ Page({
     detailAddress: '',
     tips: '以上不包括打混凝土墙体或梁',//小字注释
     selCouponsId: '',
-    remark: ''
+    remark: '',
+    dateTimeArray1: null,
+    dateTime1: '',
+    startYear: 2019,
+    endYear: 2069
   },
   // 项目数量修改
   countInput: function (e) {
@@ -71,7 +76,7 @@ Page({
       let count = that.data.content[i].count;
       let pice = that.data.content[i].pice;
       totalMoney = totalMoney + count * pice;
-      console.log(count, pice,totalMoney)
+      // console.log(count, pice,totalMoney)
     }     
     that.setData({
       totalMoney: totalMoney.toFixed(2)
@@ -154,15 +159,109 @@ Page({
         duration: 1500
       })
       return false
-    } else if (!(that.data.startTime > 0)){
-      // 判断开工日期
-      wx.showToast({
-        title: '开工日期必须大于0',
-        icon: 'none',
-        mask: true,
-        duration: 1500
-      })
-      return false
+    } else if (that.data.masterType != '清洁工'){
+      if (!(that.data.startTime > 0)){
+        // 判断开工日期
+        wx.showToast({
+          title: '开工日期必须大于0',
+          icon: 'none',
+          mask: true,
+          duration: 1500
+        })
+        return false
+      } else if (!(that.data.useTime > 0)) {
+        // 判断开工日期
+        wx.showToast({
+          title: '用工日期必须大于0',
+          icon: 'none',
+          mask: true,
+          duration: 1500
+        })
+        return false
+      } else if (!that.data.region.value) {
+        // 选择地区
+        wx.showToast({
+          title: '请选择地区',
+          icon: 'none',
+          mask: true,
+          duration: 1500
+        })
+        return false
+      } else if (!that.data.detailAddress) {
+        // 详细地址
+        wx.showToast({
+          title: '请填写详细地址',
+          icon: 'none',
+          mask: true,
+          duration: 1500
+        })
+        return false
+      } else {
+        console.log('coupons', that.data.selCouponsId)
+        let parmas = {
+          address: that.data.detailAddress,
+          area: that.data.region.value[2],
+          city: that.data.region.value[1],
+          province: that.data.region.value[0],
+          startTime: that.data.startTime,
+          useTime: that.data.useTime,
+          itemList: that.data.itemList,
+          masterTypeId: that.data.masterTypeId,
+          openId: app.globalData.openId,
+          couponsId: that.data.selCouponsId
+        }
+        console.log(parmas);
+        $http.post('/api/User/WorkOrder', parmas)
+          .then(res => {
+            // console.log(res)
+            if (res.code == 200) {
+              console.log(res);
+              if (res.data) {
+                wx.requestPayment({
+                  timeStamp: res.data.data.timeStamp,
+                  nonceStr: res.data.data.nonceStr,
+                  package: res.data.data.prepayId,
+                  signType: 'MD5',
+                  paySign: res.data.data.sign,
+                  success(res) {
+                    console.log(res);
+                    wx.switchTab({
+                      url: '/pages/mine/mine'
+                    })
+                  },
+                  fail(res) {
+                    console.log(res)
+                  }
+                })
+              } else {
+                wx.showToast({
+                  title: '下单成功',
+                  icon: 'none',
+                  mask: true,
+                  duration: 1500
+                })
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '/pages/mine/mine',
+                  })
+                }, 1500)
+              }
+            } else {
+              console.log(res)
+              wx.showToast({
+                title: res.message,
+                icon: 'none',
+                mask: true,
+                duration: 1500
+              })
+            }
+
+          })
+          .catch(res => {
+            console.log(res)
+          })
+      }
+
     } else if (!(that.data.useTime > 0)) {
       // 判断开工日期
       wx.showToast({
@@ -209,7 +308,7 @@ Page({
       .then(res => {
         console.log(res)
         if (res.code == 200) {
-          console.log(res);
+          // console.log(res);
           if (res.data){
             wx.requestPayment({
               timeStamp: res.data.data.timeStamp,
@@ -218,7 +317,7 @@ Page({
               signType: 'MD5',
               paySign: res.data.data.sign,
               success(res) {
-                console.log(res);
+                // console.log(res);
                 wx.switchTab({
                   url: '/pages/mine/mine'
                 })
@@ -272,7 +371,7 @@ Page({
     
     $http.post('/api/User/WorkItemList', { masterTypeId: options.type})
     .then(res => {
-      console.log(res);
+      // console.log(res);
       that.setData({
         content: res.data.list,
         masterTypeId: res.data.id,
@@ -293,6 +392,26 @@ Page({
     .catch(res => {
       console.log(res)
     })
+
+    console.log(that.data.masterType);
+    if (that.data.masterType == '清洁工'){
+      // 获取完整的年月日 时分秒，以及默认显示的数组
+      var obj1 = dateTimePicker.dateTimePicker(that.data.startYear, that.data.endYear);
+      // 精确到分的处理，将数组的秒去掉
+      // console.log(obj1)
+      var lastArray = obj1.dateTimeArray.pop();
+      obj1.dateTimeArray.pop();
+      var lastTime = obj1.dateTime.pop();
+      obj1.dateTime.pop();
+      that.setData({
+        dateTimeArray1: obj1.dateTimeArray,
+        dateTime1: obj1.dateTime
+      });
+      that.setData({
+        startTime: that.data.dateTimeArray1[0][that.data.dateTime1[0]] + '-' + that.data.dateTimeArray1[1][that.data.dateTime1[1]] + '-' + that.data.dateTimeArray1[2][that.data.dateTime1[2]] + ' ' + that.data.dateTimeArray1[3][that.data.dateTime1[3]]
+      })
+    }
+   
   },
   onShow: function (){
     let that = this;
@@ -315,6 +434,24 @@ Page({
     wx.navigateTo({
       url: `/pages/mine/coupons/coupons?from=dq&meney=${money}`
     })
+  },
+  // 清洁工时间日期选择
+  changeDateTime1(e) {
+    let that = this;
+    that.setData({ dateTime1: e.detail.value });
+    that.setData({
+      startTime: that.data.dateTimeArray1[0][that.data.dateTime1[0]] + '-' + that.data.dateTimeArray1[1][that.data.dateTime1[1]] + '-' + that.data.dateTimeArray1[2][that.data.dateTime1[2]] + ' ' + that.data.dateTimeArray1[3][that.data.dateTime1[3]]
+    })
+    // console.log(that.data.startTime,typeof that.data.startTime)
+  },
+  changeDateTimeColumn1(e) {
+    let that = this;
+    var arr = that.data.dateTime1, dateArr = that.data.dateTimeArray1;
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+    that.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
   }
-  
 })

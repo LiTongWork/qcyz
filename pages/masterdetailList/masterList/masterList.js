@@ -6,7 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgUrl: app.globalData.imgUrl,
     masterList: [],
+    province:"",
+    city:"",
+    area:"",
+    page:1,
     state: 1 //未接单
     // type:1,//进入详情页的状态如果被点击接单了，那么对应的状态也要变化
   },
@@ -23,7 +28,7 @@ Page({
     })
   },
   //接单数据列表
-  masterList: function (province, city, area) {
+  masterList: function (province, city, area, page) {
     var that = this
     let baseUrl = app.globalData.baseURL;
     let imgUrl = app.globalData.imgUrl;
@@ -35,7 +40,7 @@ Page({
         "auth": wx.getStorageSync("auth") ? wx.getStorageSync("auth") : ''
       },
       data: {
-        page: 1,
+        page: page,
         rows: 8,
         province: province,
         city: city,
@@ -44,19 +49,19 @@ Page({
       success(res) {
         if (res.data.code == 200) {
           console.log('masterList', res.data)
-          console.log('masterList', that.data.masterList.masterTypeId)
+          // console.log('masterList', that.data.masterList.masterTypeId)
+          that.setData({
+            masterList: that.data.masterList.concat(res.data.data.list),
+          })
           for (var i = 0; i < that.data.masterList.length; i++) {
             let createTime = 'masterList[' + i + '].createTime';
             var data = that.data.masterList[i].createTime
-            console.log(app.changeDate(data))
+            // console.log(app.changeDate(data))
             that.setData({
               [createTime]: app.changeDate(data),
-              [that.data.masterList[i].headImg]: imgUrl+ res.data.data.list[i].headImg
+              // [that.data.masterList[i].headImg]: imgUrl+ res.data.data.list[i].headImg
             })
           }
-          that.setData({
-            masterList: res.data.data.list,
-          })
         }
       }
     })
@@ -99,40 +104,11 @@ Page({
       area: options.area
     })
     console.log(options.province, options.city, options.area)
-    this.masterList(this.data.province,this.data.city,this.data.area);
+    this.masterList(this.data.province,this.data.city,this.data.area,this.data.page);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  
+   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function() {
 
   },
@@ -141,7 +117,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    this.setData({
+      page:this.data.page + 1
+    })
+    this.masterList(this.data.province, this.data.city, this.data.area,this.data.page);
   },
 
   /**

@@ -49,6 +49,15 @@ Page({
     var that = this;
     let baseUrl = app.globalData.baseURL;
     console.log(md5.hexMD5(that.data.moneyPwd))
+    if (that.data.moneyPwd==''){
+      wx.showToast({
+        title: '支付密码不能为空',
+        icon: 'none',
+        mask: true,
+        duration: 1500
+      })
+      return false
+    }
     wx.request({
       url: baseUrl +'/api/Work/Deposit',
       method: "POST",

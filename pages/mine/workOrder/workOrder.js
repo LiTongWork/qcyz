@@ -29,6 +29,10 @@ Page({
         type: 3
       },
       {
+        label: '待确认',
+        type: 6
+      },
+      {
         label: '待评价',
         type: 4
       }
@@ -126,9 +130,7 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
     let that = this;
     that.setData({
@@ -143,9 +145,7 @@ Page({
     that.getList(params)
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  //页面上拉触底事件的处理函数
   onReachBottom: function (e) {
     console.log('reachBottom');
     let that = this;
@@ -222,19 +222,59 @@ Page({
         mask: true,
         duration: 1500
       })
-      if (res.code == 200) {
-        that.setData({
-          page: 1,
-          list: []
-        })
-        let params = {
-          page: that.data.page,
-          rows: that.data.rows,
-          status: that.data.status
+      setTimeout(function () {
+        if (res.code == 200) {
+          that.setData({
+            page: 1,
+            list: []
+          })
+          let params = {
+            page: that.data.page,
+            rows: that.data.rows,
+            status: that.data.status
+          }
+          that.getList(params)
         }
-        that.getList(params)
-      }
+      }, 1500)
 
+    })
+    .catch(res => {
+      console.log(res)
+    })
+  },
+  // 确认订单
+  confirmOrder: function(e){
+    let that = this;
+    console.log(e.currentTarget.dataset)
+    let id = e.currentTarget.dataset.id;
+    let params = {
+      id: id,
+      status: 4
+    }
+    $http.post('/api/UserCenter/UserConfirm',params)
+    .then(res => {
+      console.log(res);
+      wx.showToast({
+        title: res.message,
+        icon: 'none',
+        mask: true,
+        duration: 1500
+      })
+      setTimeout(function(){
+        if (res.code == 200) {
+          that.setData({
+            page: 1,
+            list: []
+          })
+          let params = {
+            page: that.data.page,
+            rows: that.data.rows,
+            status: that.data.status
+          }
+          that.getList(params)
+        }
+      },1500)
+      return false
     })
     .catch(res => {
       console.log(res)

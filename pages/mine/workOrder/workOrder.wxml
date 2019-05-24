@@ -16,6 +16,7 @@
           <text wx:if='{{item.status == 1}}' class='status'>已下单</text>
           <text wx:if='{{item.status == 2}}' class='status'>已接单</text>
           <text wx:if='{{item.status == 3}}' class='status'>在执行</text>
+          <text wx:if='{{item.status == 6}}' class='status'>待确认</text>
           <text wx:if='{{item.status == 4}}' class='status'>{{item.isReview ? '已评价' : '待评价'}}</text>
         </view>
         <view class='time'>{{item.createTime}}</view>
@@ -24,6 +25,7 @@
           <!-- <view class='cancel'>取消订单</view> -->       
           <view wx:if='{{item.status == 0}}' data-id='{{item.id}}' bindtap='pay'>支付</view>
           <view wx:if='{{item.status == 1}}' data-id='{{item.id}}' bindtap='cancelPay'>取消</view>   
+          <view wx:if='{{item.status == 6}}' data-id='{{item.id}}' bindtap='confirmOrder'>确认</view>   
           <view wx:if='{{item.status == 4}}' data-id='{{item.id}}' data-type='{{item.masterTypeName}}' bindtap='toComment'>{{item.isReview ? '查看评价' : '评价'}}</view>
         </view>
       </view>

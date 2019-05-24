@@ -263,9 +263,27 @@ Page({
             signType: 'MD5',
             paySign: res.data.data.data.sign,
             success(res) {
-              console.log("=====")
+              wx.showToast({
+                title: '商品购买成功',
+                icon: 'success',
+                mask: true,
+                duration: 1500
+              })
+              wx.switchTab({
+                url: '/pages/mine/mine'
+              })
             },
-            fail(res) { }
+            fail(res) { 
+              wx.showToast({
+                title: '商品购买失败',
+                icon: 'none',
+                mask: true,
+                duration: 1500
+              })
+              wx.switchTab({
+                url: '/pages/mine/mine'
+              })
+            }
           })
         }
       })

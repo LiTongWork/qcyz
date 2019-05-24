@@ -3,7 +3,7 @@ view {
   display: flex;
 }
 .masterList-list {
-  height: 151rpx;
+  height: auto;
   width: 651rpx;
   background-color: #fff;
   margin-top: 25rpx;
