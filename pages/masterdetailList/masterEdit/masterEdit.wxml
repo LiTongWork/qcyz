@@ -71,10 +71,10 @@
   </view>
   <!-- 支付密码 -->
   <view class='input-tag'>
-    <text style='flex:1;text-align:center;'>支付密码</text>
+    <text style='flex:1;text-align:center;'>提现密码</text>
     <view class='input-item'>
       <text style='color:#ffd200'>*</text>
-      <input class='input-text' type='number' maxlength='6' value='{{pwd}}' placeholder='请输入支付密码' placeholder-style='color:#a2a2a2' bindinput='changePwd' />
+      <input class='input-text' type='number' maxlength='6' value='{{pwd}}' placeholder='请输入提现密码' placeholder-style='color:#a2a2a2' bindinput='changePwd' />
     </view>
   </view>
   <!-- 支付密码 -->

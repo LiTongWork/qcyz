@@ -158,7 +158,8 @@ Page({
 
     console.log(isreview)
     wx.navigateTo({
-      url: "/pages/mine/comment/comment?id=" + id + '&from=' + type + '&isreview=' + isreview
+      url: "/pages/mine/comment/comment?id=" + id + '&from=' + type + '&isreview=' + isreview,
+      // url: `/pages/mine/comment/comment?id= ${id} &form= ${type} &isreview=${isreview}`
     })
   },
   //生命周期函数--监听页面加载

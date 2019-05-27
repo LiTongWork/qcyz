@@ -84,14 +84,27 @@ Page({
         }
       }
     })
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-
+  con: function (obj) {
+    return obj+2;
+    console.log("obj", obj)
+  },
+  onLoad: function(e) {
+    this.con(1);
+    console.log("obj", this.con(1))
+    
+    function constantize(obj) {
+      return obj+1;
+    }
+    constantize(5);
+    console.log("constantize(2)", constantize(2))
+    var constan = (obj)=>obj+1;
+    constan(8);
+    console.log("constan(8)", constan(8))
   },
 
   /**

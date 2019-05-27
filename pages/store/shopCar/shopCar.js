@@ -197,12 +197,12 @@ Page({
         console.log(res.data)
         var detaiList = res.data.data
         if (res.data.code == 200) {
-          for (var i = 0; i < detaiList.length; i++) {
-            detaiList[i].goodsImg = imgUrl + detaiList[i].goodsImg;
-          }
           that.setData({
             detailData: detaiList
           })
+          for (var i = 0; i < detaiList.length; i++) {
+            detaiList[i].goodsImg = imgUrl + detaiList[i].goodsImg;
+          }
         }
       }
     })
@@ -292,7 +292,7 @@ Page({
   // 生命周期函数--监听页面加载
   onLoad: function(options) {
     this.carList();
-    this.addressList(-1)
+    this.addressList(-1);
   },
   onShow:function(){
     this.carList();
@@ -328,9 +328,12 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
-
-  },
+  // onReachBottom: function() {
+  //   this.setData({
+  //     page:this.data.page+1
+  //   })
+  //   this.carList()
+  // },
 
   /**
    * 用户点击右上角分享

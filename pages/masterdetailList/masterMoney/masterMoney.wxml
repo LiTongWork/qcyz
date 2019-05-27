@@ -13,8 +13,8 @@
       <input type='number' auto-focus value='{{moneyNumber}}' auto-focus bindinput='number' />
     </view>
     <view class='money-input'>
-      <text style='font-size:30rpx;flex:1'>支付密码</text>
-      <input style='font-size:30rpx;padding-left:30rpx;flex:2' type='number' maxlength='6' value='{{moneyPwd}}'  bindinput='pwd' placeholder='请输入支付密码' placeholder-style='' />
+      <text style='font-size:30rpx;flex:1'>提现密码</text>
+      <input style='font-size:30rpx;padding-left:30rpx;flex:2' type='number' maxlength='6' value='{{moneyPwd}}'  bindinput='pwd' placeholder='请输入提现密码' placeholder-style='' />
     </view>
   </view>
 
