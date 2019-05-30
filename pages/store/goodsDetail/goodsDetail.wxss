@@ -42,11 +42,23 @@ swiper-item image {
 .freight text {
   margin-left: 10rpx;
 }
+.comments {
+  border-bottom: 1px solid #e9e9e9;
+}
 .comments .title {
   line-height: 70rpx;
   font-size: 26rpx;
   font-weight: normal;
 }
+/* 宝贝详情 */
+.goodsContent {
+  padding-bottom: 20rpx;
+}
+.goodsContent .title {
+  font-weight: normal;
+  font-size: 24rpx;
+}
+
 
 .subOrder {
   position: fixed;
@@ -72,6 +84,19 @@ swiper-item image {
 .subOrder .service, .subOrder .shopCar {
   flex: 0 0 140rpx;
   width: 140rpx;
+  position: relative;
+}
+.service button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.service button::after {
+  border: none;
 }
 .subOrder .service image, .subOrder .shopCar image {
   margin: 9rpx auto 0;
@@ -94,4 +119,10 @@ swiper-item image {
 }
 .subOrder .buy  {
   background-color: #ffd200;
+}
+
+/* 富文本 */
+.rich-img {
+  margin: 10rpx auto;
+  width: 100%;
 }

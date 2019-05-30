@@ -13,8 +13,9 @@ Page({
   logOut: function () {
     wx.setStorageSync('auth', '');
     wx.setStorageSync('loginType', '');
-    wx.redirectTo({
-      url: '/pages/login/login',
+    wx.setStorageSync('openId', '');
+    wx.reLaunch({
+      url: '/pages/index/index',
     })
   },
   masterPwd() {

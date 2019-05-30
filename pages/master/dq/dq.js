@@ -48,7 +48,7 @@ Page({
     let bb = `itemList[${i}].number`;
     that.setData({
       [num]: that.data.content[i].count + 1,
-      [bb]: that.data.content[i].count
+      [bb]: that.data.content[i].count + 1
     })
     that.totalMoney();
     console.log(that.data.itemList)
@@ -62,7 +62,7 @@ Page({
     if (that.data.content[i].count > 0) {
       that.setData({
         [num]: that.data.content[i].count - 1,
-        [bb]: that.data.content[i].count
+        [bb]: that.data.content[i].count - 1
       })
     }
     that.totalMoney();
@@ -150,25 +150,133 @@ Page({
   // 下单提交
   sub:function(){
     let that = this;
-    if (!(that.data.totalMoney > 0)){
-      // 判断价格
-      wx.showToast({
-        title: '请选择商品',
-        icon: 'none',
-        mask: true,
-        duration: 1500
-      })
-      return false
-    } else if (that.data.masterType != '清洁工'){
-      if (!(that.data.startTime > 0)){
-        // 判断开工日期
+    console.log(app.globalData.openId)
+    if (wx.getStorageSync("auth") != '' && wx.getStorageSync('openId') != '' && wx.getStorageSync('loginType') == 6) {
+      if (!(that.data.totalMoney > 0)) {
+        // 判断价格
         wx.showToast({
-          title: '开工日期必须大于0',
+          title: '请选择商品',
           icon: 'none',
           mask: true,
           duration: 1500
         })
         return false
+      } else if (that.data.masterType != '清洁工') {
+        if (!(that.data.startTime > 0)) {
+          // 判断开工日期
+          wx.showToast({
+            title: '开工日期必须大于0',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          return false
+        } else if (!(that.data.useTime > 0)) {
+          // 判断开工日期
+          wx.showToast({
+            title: '用工日期必须大于0',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          return false
+        } else if (!that.data.region.value) {
+          // 选择地区
+          wx.showToast({
+            title: '请选择地区',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          return false
+        } else if (!that.data.detailAddress) {
+          // 详细地址
+          wx.showToast({
+            title: '请填写详细地址',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          return false
+        } else if (app.globalData.openId == '') {
+          wx.showToast({
+            title: 'openId不能为空，重新登录',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }, 1500)
+          return false
+        } else {
+          console.log('coupons', that.data.selCouponsId)
+          let parmas = {
+            address: that.data.detailAddress,
+            area: that.data.region.value[2],
+            city: that.data.region.value[1],
+            province: that.data.region.value[0],
+            startTime: that.data.startTime,
+            useTime: that.data.useTime,
+            itemList: that.data.itemList,
+            masterTypeId: that.data.masterTypeId,
+            openId: app.globalData.openId,
+            couponsId: that.data.selCouponsId
+          }
+          console.log(parmas);
+          $http.post('/api/User/WorkOrder', parmas)
+            .then(res => {
+              // console.log(res)
+              if (res.code == 200) {
+                console.log(res);
+                if (res.data) {
+                  wx.requestPayment({
+                    timeStamp: res.data.data.timeStamp,
+                    nonceStr: res.data.data.nonceStr,
+                    package: res.data.data.prepayId,
+                    signType: 'MD5',
+                    paySign: res.data.data.sign,
+                    success(res) {
+                      console.log(res);
+                      wx.switchTab({
+                        url: '/pages/mine/mine'
+                      })
+                    },
+                    fail(res) {
+                      console.log(res)
+                    }
+                  })
+                } else {
+                  wx.showToast({
+                    title: '下单成功',
+                    icon: 'none',
+                    mask: true,
+                    duration: 1500
+                  })
+                  setTimeout(function () {
+                    wx.switchTab({
+                      url: '/pages/mine/mine',
+                    })
+                  }, 1500)
+                }
+              } else {
+                console.log(res)
+                wx.showToast({
+                  title: res.message,
+                  icon: 'none',
+                  mask: true,
+                  duration: 1500
+                })
+              }
+
+            })
+            .catch(res => {
+              console.log(res)
+            })
+        }
+
       } else if (!(that.data.useTime > 0)) {
         // 判断开工日期
         wx.showToast({
@@ -196,6 +304,19 @@ Page({
           duration: 1500
         })
         return false
+      } else if (app.globalData.openId == '') {
+        wx.showToast({
+          title: 'openId不能为空，重新登录',
+          icon: 'none',
+          mask: true,
+          duration: 1500
+        })
+        setTimeout(function () {
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        }, 1500)
+        return false
       } else {
         console.log('coupons', that.data.selCouponsId)
         let parmas = {
@@ -213,9 +334,9 @@ Page({
         console.log(parmas);
         $http.post('/api/User/WorkOrder', parmas)
           .then(res => {
-            // console.log(res)
+            console.log(res)
             if (res.code == 200) {
-              console.log(res);
+              // console.log(res);
               if (res.data) {
                 wx.requestPayment({
                   timeStamp: res.data.data.timeStamp,
@@ -224,7 +345,7 @@ Page({
                   signType: 'MD5',
                   paySign: res.data.data.sign,
                   success(res) {
-                    console.log(res);
+                    // console.log(res);
                     wx.switchTab({
                       url: '/pages/mine/mine'
                     })
@@ -261,99 +382,24 @@ Page({
             console.log(res)
           })
       }
-
-    } else if (!(that.data.useTime > 0)) {
-      // 判断开工日期
-      wx.showToast({
-        title: '用工日期必须大于0',
-        icon: 'none',
-        mask: true,
-        duration: 1500
-      })
-      return false
-    } else if (!that.data.region.value) {
-      // 选择地区
-      wx.showToast({
-        title: '请选择地区',
-        icon: 'none',
-        mask: true,
-        duration: 1500
-      })
-      return false
-    } else if (!that.data.detailAddress) {
-      // 详细地址
-      wx.showToast({
-        title: '请填写详细地址',
-        icon: 'none',
-        mask: true,
-        duration: 1500
-      })
-      return false
-    }else {
-      console.log('coupons', that.data.selCouponsId)
-      let parmas = {
-        address: that.data.detailAddress,
-        area: that.data.region.value[2],
-        city: that.data.region.value[1],
-        province: that.data.region.value[0],
-        startTime: that.data.startTime,
-        useTime: that.data.useTime,
-        itemList: that.data.itemList,
-        masterTypeId: that.data.masterTypeId,
-        openId: app.globalData.openId,
-        couponsId: that.data.selCouponsId
-      }
-      console.log(parmas);
-      $http.post('/api/User/WorkOrder',parmas)
-      .then(res => {
-        console.log(res)
-        if (res.code == 200) {
-          // console.log(res);
-          if (res.data){
-            wx.requestPayment({
-              timeStamp: res.data.data.timeStamp,
-              nonceStr: res.data.data.nonceStr,
-              package: res.data.data.prepayId,
-              signType: 'MD5',
-              paySign: res.data.data.sign,
-              success(res) {
-                // console.log(res);
-                wx.switchTab({
-                  url: '/pages/mine/mine'
-                })
-              },
-              fail(res) {
-                console.log(res)
-              }
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.navigateTo({
+              url: '/pages/login/login',
             })
-          }else{
-            wx.showToast({
-              title: '下单成功',
-              icon: 'none',
-              mask: true,
-              duration: 1500
-            })
-            setTimeout(function(){
-              wx.switchTab({
-                url: '/pages/mine/mine',
-              })
-            },1500)
+          } else if (res.cancel) {
+            console.log('用户点击取消')
           }
-        }else {
-          console.log(res)
-          wx.showToast({
-            title: res.message,
-            icon: 'none',
-            mask: true,
-            duration: 1500
-          })
         }
-    
       })
-      .catch(res => {
-        console.log(res)
-      })
+
     }
+
 
   
   },
@@ -369,9 +415,9 @@ Page({
       masterType: options.title
     })
     
-    $http.post('/api/User/WorkItemList', { masterTypeId: options.type})
+    $http.post('/api/Home/WorkItemList', { masterTypeId: options.type})
     .then(res => {
-      // console.log(res);
+      console.log(res);
       that.setData({
         content: res.data.list,
         masterTypeId: res.data.id,
@@ -387,7 +433,7 @@ Page({
         }
         that.data.itemList.push(obj)
       }
-      // console.log(that.data.itemList)
+      console.log(that.data.itemList)
     })
     .catch(res => {
       console.log(res)
@@ -430,10 +476,27 @@ Page({
   toCoupons: function (e){
     let that = this;
     let money = e.currentTarget.dataset.money;
-    console.log('totalMoney',money)
-    wx.navigateTo({
-      url: `/pages/mine/coupons/coupons?from=dq&meney=${money}`
-    })
+    console.log('totalMoney', money)
+    if (wx.getStorageSync("auth") != '' && wx.getStorageSync('openId') != '' && wx.getStorageSync('loginType') == 6) {
+      wx.navigateTo({
+        url: `/pages/mine/coupons/coupons?from=dq&meney=${money}`
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
   },
   // 清洁工时间日期选择
   changeDateTime1(e) {

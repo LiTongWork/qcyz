@@ -100,7 +100,7 @@ Page({
                         url: '/pages/index/index',
                       })
                     } else if (res.data.loginType == 5) {
-                      wx.redirectTo({
+                      wx.reLaunch({
                         url: '/pages/masterCenter/masterCenter',
                       })
                     }
@@ -335,91 +335,47 @@ Page({
         title: '登录'
       })
     }
-    // 查看是否授权
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success(res) {
-              // console.log(res)
-              app.globalData.userInfo = JSON.parse(res.rawData);
-              console.log(app.globalData.userInfo);
-              if (!options.from) {
-                if (wx.getStorageSync("auth") && wx.getStorageSync('openId')) {
-                  app.globalData.openId = wx.getStorageSync('openId');
-                  // 查看是否授权/
-                  if (wx.getStorageSync("loginType") == 6) {
-                    wx.switchTab({
-                      url: '/pages/index/index',
-                    })
-                  } else if (wx.getStorageSync("loginType") == 5) {
-                    wx.redirectTo({
-                      url: '/pages/masterCenter/masterCenter',
-                    })
-                  }
-                }
-              }
-            },
-            fail(res){
-              console.log(res)
-            }
-          })
-        } else {
-          // console.log(res)
-          wx.redirectTo({
-            url: '/pages/authorization/authorization',
-          })
-        }
-      },
-      fail(res){
-        console.log(res)
-      }
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    // 每次都测试是否授权
-    let that = this;
-    // that.authorization()
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    // wx.setStorageSync('countdown', this.data.countdown)
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    // // 查看是否授权
+    // wx.getSetting({
+    //   success(res) {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+    //       wx.getUserInfo({
+    //         success(res) {
+    //           // console.log(res)
+    //           app.globalData.userInfo = JSON.parse(res.rawData);
+    //           if (!options.from) {
+    //             if (wx.getStorageSync("auth") != '' && wx.getStorageSync('openId') != '') {
+    //               console.log(wx.getStorageSync('auth'))
+    //               console.log(wx.getStorageSync('openId'))
+    //               app.globalData.openId = wx.getStorageSync('openId');
+    //               if (wx.getStorageSync("loginType") == 6) {
+    //                 wx.switchTab({
+    //                   url: '/pages/index/index',
+    //                 })
+    //               } else if (wx.getStorageSync("loginType") == 5) {
+    //                 wx.redirectTo({
+    //                   url: '/pages/masterCenter/masterCenter',
+    //                 })
+    //               }
+    //             }
+    //           }
+    //         },
+    //         fail(res){
+    //           console.log(res)
+    //         }
+    //       })
+    //     } else {
+    //       // console.log(res)
+    //       wx.redirectTo({
+    //         url: '/pages/authorization/authorization',
+    //       })
+    //     }
+    //   },
+    //   fail(res){
+    //     console.log(res)
+    //   }
+    // })
   },
   // 跳转
   toForget: function () {

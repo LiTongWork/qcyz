@@ -4,7 +4,7 @@
 /* 公共样式 */
 .list-item {
   box-sizing: border-box;
-  margin-top: 10rpx;
+  margin-top: 12rpx;
   /* padding: 20rpx 0; */
   width: 100%;
   background-color: #fff;
@@ -121,7 +121,7 @@ picker view {
   width: 100%;
 }
 .add-item {
-  margin-top: 10rpx;
+  margin-top: 12rpx;
   min-height: 60rpx;
   line-height: 60rpx;
   background-color: #fff;

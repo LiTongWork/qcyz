@@ -1,0 +1,23 @@
+<!--pages/store/goodsComments/goodsComments.wxml-->
+<view class='container'>
+  <view class='list' wx:if='{{list.length > 0}}'>
+    <view class='list-item' wx:for='{{list}}' wx:key='index'>
+      <view class='info'>
+        <view class='avatar'>
+          <image src='{{item.headImg ? item.headImg : "/static/img/defaultPhoto.png"}}' mode='widthFix'></image>
+        </view>
+        <view class='desc'>
+          <view class='nickName'>{{item.nickName ? item.nickName : "匿名"}}</view>
+          <view class='createTime'>{{item.createTime}}</view>
+        </view>
+      </view>
+      <view class='content'>
+        <view class='text'>{{item.content}}</view>
+        <view class='pics'>
+          <image wx:for='{{item.imgs}}' wx:for-index="idx" wx:for-item="itemName" wx:key='idx' src='{{imgUrl + itemName}}' mode='widthFix' bindtap='previewImg' data-urls= '{{item.imgs}}' data-url='{{imgUrl + itemName}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='noData' wx:else>暂无评价</view>
+</view>

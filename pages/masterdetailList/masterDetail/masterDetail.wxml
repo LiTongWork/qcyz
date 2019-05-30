@@ -78,11 +78,11 @@
     <image wx:if="{{state==2}}" class='monety-btn' src='/static/img/success.png' mode='widthFix'></image>
   </view>
   <!-- 在执行的上传图片 -->
-  <view wx:if="{{state==3}}||{{state==4}}" class='add-pic-tag' bindtap='goLoad'>
+  <view wx:if="{{ state == 3 || state == 6 }}" data-state='{{state}}' class='add-pic-tag' bindtap='goLoad'>
     <image class='pic-show' wx:for='{{arr}}' wx:key='index' src='{{item}}' mode='widthFix'></image>
-    <view class='img-item' wx:if='{{arr.length <= 0}}'>
+    <view class='img-item' wx:if='{{arr.length <= 0}}' wx:if="{{state==3}}">
       <image class='img-carmera' src='/static/img/camera.png' mode='aspectFill'></image>
-      <text wx:if="{{state==3}}">添加图片</text>
+      <text>添加图片</text>
     </view>
   </view>
   <view wx:if="{{state==3}}" class='sub'><button bindtap='sub'>保存图片</button></view>

@@ -73,13 +73,19 @@ view {
 .master-list-tag {
   height: 96rpx;
   background-color: #fff;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1rpx solid #ebebeb;
   padding-left: 45rpx;
   padding-right: 45rpx;
 }
-
+.master-list-tag.contact {
+  width: 100%;
+}
+.master-list-tag.contact::after {
+  border: none;
+} 
 .master-tag {
   height: 98rpx;
   font-size: 30rpx;

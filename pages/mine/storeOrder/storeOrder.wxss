@@ -1,6 +1,10 @@
 /* pages/mine/storeOreder/storeOreder.wxss */
 /* 顶部导航 */
 .nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
   width: 100%;
   background-color: #fff;
   display: flex;
@@ -19,6 +23,9 @@
 .nav-item.active text{
   color: #ffd200;
   border-bottom: 1px solid #ffd200;
+}
+.content {
+  margin-top: 100rpx;
 }
 /* 订单信息 */
 .order {

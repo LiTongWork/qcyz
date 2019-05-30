@@ -17,7 +17,7 @@ Page({
     area: "",
     status:''//审核状态，2是通过
   },
-  //接单的状态 type(1:接单  0:工作)
+  //接单的状态 type(0:接单  1:工作)
   changType: function(type) {
     console.log('type', type)
     var that = this
@@ -39,16 +39,16 @@ Page({
   },
   //接单中
   doIt() {
-    this.changType(1);
+    this.changType(0);
     this.setData({
-      type: 1
+      type: 0
     })
   },
   //工作中
   doing() {
-    this.changType(0)
+    this.changType(1)
     this.setData({
-      type: 0
+      type: 1
     })
   },
   //加载个人信息数据
@@ -68,7 +68,7 @@ Page({
         "auth": wx.getStorageSync("auth") ? wx.getStorageSync("auth") : ''
       },
       success(res) {
-        console.log('status', res.data.data.status)
+        console.log('res', res)
         if (res.data.code == 200) {
           console.log(res.data.code);
           that.setData({

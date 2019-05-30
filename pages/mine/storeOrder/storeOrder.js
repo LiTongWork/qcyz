@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrl:app.globalData.imgUrl,
+    imgUrl: app.globalData.imgUrl,
     showFlag: -1,
     nav: [{
         label: '全部',
@@ -27,19 +27,19 @@ Page({
       },
       {
         label: '待评价',
-        type: 2
+        type: 3
       }
     ],
     user: {},
     storeData: [],
-    goodsList: [],
+    indentList: [],
     orderList: [], //订单列表
     goodsChecked: [], //选中的商品id,number列表
     page: 1,
     rows: 3
   },
   //列表的调取 状态(0:未支付;1:已支付;2:已发货;3:已签收;4:已评价;5:已退回;-1:全部)
-  changeList(page,rows,type) {
+  changeList(page, rows, type) {
     var that = this
     let baseUrl = app.globalData.baseURL;
     let imgUrl = app.globalData.imgUrl;
@@ -75,9 +75,9 @@ Page({
       title: title
     })
     this.setData({
-      storeData:[]
+      storeData: []
     })
-    this.changeList(this.data.page,this.data.rows,type);
+    this.changeList(this.data.page, this.data.rows, type);
   },
   //点击付款
   payMoney(e) {
@@ -106,7 +106,13 @@ Page({
           signType: 'MD5',
           paySign: res.data.data.data.sign,
           success(res) {
-            console.log("=====")
+            that.setData({
+              page: 1
+            });
+            that.setData({
+              storeData: []
+            })
+            that.changeList(that.data.page, that.data.rows, that.data.showFlag);
           },
           fail(res) {}
         })
@@ -135,9 +141,10 @@ Page({
               })
               if (res.code == 200) {
                 that.setData({
-                  page: 1
+                  page: 1,
+                  storeData:[]
                 })
-                that.changeList(that.data.showFlag);
+                that.changeList(that.data.page, that.data.rows,that.data.showFlag);
               }
             })
             .catch(res => {
@@ -171,23 +178,34 @@ Page({
       showFlag: options.type
     })
     console.log(this.data.showFlag)
-    this.changeList(this.data.page,this.data.rows,this.data.showFlag);
+    this.changeList(this.data.page, this.data.rows, this.data.showFlag);
   },
- //生命周期函数--监听页面显示
+  //生命周期函数--监听页面显示
   onShow: function() {
 
   },
   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function() {
-
+    let that = this;
+    that.setData({
+      showFlag: that.data.showFlag,
+      page: 1
+    });
+    that.setData({
+      storeData: []
+    })
+    that.changeList(that.data.page, that.data.rows, that.data.showFlag);
+    setTimeout(function() {
+      wx.stopPullDownRefresh()
+    }, 1500)
   },
 
   //页面上拉触底事件的处理函数
-  onReachBottom: function (e) {
+  onReachBottom: function(e) {
     let that = this;
-      this.setData({
-        page:that.data.page+1
-      })
+    this.setData({
+      page: that.data.page + 1
+    })
     this.changeList(this.data.page, this.data.rows, this.data.showFlag);
   },
   /**

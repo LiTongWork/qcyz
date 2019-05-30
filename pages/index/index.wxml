@@ -41,7 +41,7 @@
       <view class='img-box'><image src='/static/img/indexNav2.png' mode='widthFix'></image></view>
       <view class='text'>我要找材料</view>
     </view>
-    <view class='nav-item' bindtap='toDesign'>
+    <view class='nav-item' bindtap='toMasterDq' data-id='72AF3473-8790-4796-8495-2B22F45ADF39' data-title='我要找设计'>
       <view class='img-box'><image src='/static/img/indexNav3.png' mode='widthFix'></image></view>
       <view class='text'>我要找设计</view>
     </view>

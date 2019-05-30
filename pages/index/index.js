@@ -133,9 +133,27 @@ Page({
     // })
   },
   toShopCar: function () {
-    wx.navigateTo({
-      url: '/pages/store/shopCar/shopCar',
-    })
+    if (wx.getStorageSync("auth") != '' && wx.getStorageSync('openId') != '' && wx.getStorageSync('loginType') == 6) {
+      wx.navigateTo({
+        url: '/pages/store/shopCar/shopCar',
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+
   },
   toMaster: function () {
     wx.navigateTo({

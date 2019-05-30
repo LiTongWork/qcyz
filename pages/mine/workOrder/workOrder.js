@@ -188,6 +188,9 @@ Page({
               rows: that.data.rows,
               status: that.data.status
             }
+            that.setData({
+              list: []
+            })
             that.getList(params)
           },
           fail(res) {

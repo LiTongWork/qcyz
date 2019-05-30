@@ -8,14 +8,17 @@
   box-sizing: border-box;
 }
 .list-item {
-  margin-top: 20rpx;
+  margin-bottom: 36rpx;
   box-sizing: border-box;
   width: 320rpx;
   border: 1rpx solid #a2a2a2;
   background-color: #fff;
   border-radius: 10rpx;
 }
-
+.list-item .img {
+  width: 320rpx;
+  height: 320rpx;
+}
 .list-item .title {
   margin: 10rpx 0;
   padding: 0 15rpx;

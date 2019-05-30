@@ -82,7 +82,7 @@
     <text style='flex:1;text-align:center;'>登录密码</text>
     <view class='input-item'>
       <text style='color:#ffd200'>*</text>
-      <input class='input-text' type='number' value='{{loginPwd}}' placeholder='请输入登陆密码' placeholder-style='color:#a2a2a2' bindinput='changeLoginPwd' />
+      <input class='input-text' type='number' value='{{loginPwd}}' placeholder='请输入登录密码' placeholder-style='color:#a2a2a2' bindinput='changeLoginPwd' />
     </view>
   </view>
 

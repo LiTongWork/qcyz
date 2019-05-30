@@ -1,6 +1,6 @@
 <!--pages/masterdetailList/changePwd/changePwd.wxml-->
 <view class='container' style='background-color:#f8f8f8;'>
-<!-- 登陆密码重置 -->
+<!-- 登录密码重置 -->
   <view class='master-list-tag' style='margin-top:30rpx;'>
     <view class='master-tag'>
       <text>原密码</text>
@@ -14,6 +14,6 @@
     </view>
   </view>
   <view class='monety-btn' bindtap='baoBtn'>
-    <text class='true-btn'>确认提现</text>
+    <text class='true-btn'>确认修改</text>
   </view>
 </view>

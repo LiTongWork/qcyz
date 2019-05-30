@@ -16,7 +16,7 @@ Page({
     address: '',
     detailData: [], //购物车列表
     goodsChecked: [], //选中的商品id,number列表
-    totalMoney: 0,
+    totalMoney: '0.00',
     totalStatus: false,
     freight: '' //zong运费
   },
@@ -35,7 +35,7 @@ Page({
         Status: status
       },
       success(res) {
-        console.log(res.data.message)
+        // console.log(res.data.message)
         if (res.data.message == 1) {
           that.setData({
             showAddress: res.data.message,
@@ -67,6 +67,7 @@ Page({
           [bb]: true
         });
       }
+      that.totalMoney()
     } else {
       for (var k in that.data.detailData) {
         let bb = `detailData[${k}].status`;
@@ -74,8 +75,8 @@ Page({
           [bb]: false
         });
       }
+      that.totalMoney()
     }
-    that.totalMoney()
   },
   // 计算总价
   totalMoney: function(e) {
@@ -84,13 +85,13 @@ Page({
     //选中的价格
     for (var i = 0; i < that.data.detailData.length; i++) {
       if (that.data.detailData[i].status) {
-        allPrice = allPrice + that.data.detailData[i].money * that.data.detailData[i].number + that.data.freight
+        allPrice = Number(allPrice) + Number(that.data.detailData[i].money) * Number(that.data.detailData[i].number) + Number(that.data.detailData[i].freight)
       }
-      that.setData({
-        totalMoney: allPrice.toFixed(2)
-      })
-
     }
+    console.log()
+    that.setData({
+      totalMoney: Number(allPrice).toFixed(2)
+    })
     console.log('allPrice', that.data.totalMoney)
   },
   // 选中未选中
@@ -182,6 +183,7 @@ Page({
     var that = this
     let baseUrl = app.globalData.baseURL;
     let imgUrl = app.globalData.imgUrl;
+
     wx.request({
       url: baseUrl + '/api/Store/GetCarGoods',
       method: "POST",
@@ -197,12 +199,12 @@ Page({
         console.log(res.data)
         var detaiList = res.data.data
         if (res.data.code == 200) {
-          that.setData({
-            detailData: detaiList
-          })
           for (var i = 0; i < detaiList.length; i++) {
             detaiList[i].goodsImg = imgUrl + detaiList[i].goodsImg;
           }
+          that.setData({
+            detailData: detaiList
+          })
         }
       }
     })

@@ -126,8 +126,8 @@ Page({
   goDetail(e){
     let id = e.currentTarget.dataset.id;
     let masterTypeId = e.currentTarget.dataset.masterid;
-    let state = 2
-    console.log('id',id)
+    let state = this.data.showFlag
+    console.log('state', state)
     wx.navigateTo({
       url: '/pages/masterdetailList/masterDetail/masterDetail?id=' + id + '&state=' + state + '&masterTypeId=' + masterTypeId
     })

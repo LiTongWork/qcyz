@@ -67,7 +67,7 @@ Page({
           regionStatus:true,
           consigneeName: res.data.data.consigneeName,
           consigneeMobile: res.data.data.consigneeMobile,
-          'region.value[0]': res.data.data.province ,
+          'region.value[0]': res.data.data.province,
           'region.value[1]': res.data.data.city,
           'region.value[2]': res.data.data.area,
           detailAddress: res.data.data.address,
@@ -122,6 +122,7 @@ Page({
         "auth": wx.getStorageSync("auth") ? wx.getStorageSync("auth") : ''
       },
       data: {
+        id: that.data.id,
         ConsigneeName: that.data.consigneeName,
         ConsigneeMobile: that.data.consigneeMobile,
         Status: that.data.status,

@@ -11,9 +11,10 @@ Page({
   },
   bindGetUserInfo(e) {
     console.log(e.detail.userInfo);
+    let that = this;
     if (e.detail.userInfo){
       wx.reLaunch({
-        url: '/pages/login/login'
+        url: '/pages/index/index'
       })
     }
   },

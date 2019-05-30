@@ -2,7 +2,7 @@
 <view class='container'>
   <view wx:if='{{listData.length > 0}}' class='list'>
     <view class='list-item' wx:for='{{listData}}' wx:key='index' data-title='{{item.title}}' data-id='{{item.id}}' bindtap='toGoodsDetail'>
-      <image src='{{item.goodsImg}}' mode='widthFix'></image>
+      <image class='img' src='{{item.goodsImg}}' ></image>
       <view class='title'>{{item.goodsName}}</view>
       <view class='buy'>
         <view class='price'>

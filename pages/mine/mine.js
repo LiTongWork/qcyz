@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasLogin: false,
     avatarUrl: '/static/img/defaultPhoto.png',
-    name: '猪猪',
+    name: '',
     id: '',
     yue: '66.00',
     yongjin: '20.00',
@@ -86,8 +87,8 @@ Page({
     wx.setStorageSync('auth', '');
     wx.setStorageSync('loginType', '');
     wx.setStorageSync('openId', '');
-    wx.redirectTo({
-      url: '/pages/login/login',
+    wx.reLaunch({
+      url: '/pages/index/index',
     })
   },
   /**
@@ -95,25 +96,6 @@ Page({
    */
   onLoad: function(options) {
     console.log(wx.getStorageSync('loginType'))
-    let that = this;
-    console.log(app.globalData.userInfo)
-    that.setData({
-      avatarUrl: app.globalData.userInfo.avatarUrl,
-      name: app.globalData.userInfo.nickName
-    })
-    // 用户信息
-    $http.post('/api/User/MyLoginInfo', {})
-      .then(res => {
-        // console.log('MyLoginInfo',res);
-        if (res.code == 200) {
-          that.setData({
-            id: res.data.mobile
-          })
-        }
-      })
-      .catch(res => {
-        console.log('catch', res)
-      })
   },
 
   /**
@@ -121,6 +103,35 @@ Page({
    */
   onShow: function() {
     let that = this;
+    // 判断是否登录
+    console.log(app.globalData.userInfo)
+    if (wx.getStorageSync("auth") != '' && wx.getStorageSync('openId') != '') {
+      that.setData({
+        hasLogin: true
+      })
+      // 如果已登录
+      that.setData({
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        name: app.globalData.userInfo.nickName
+      })
+      // 用户信息
+      $http.post('/api/User/MyLoginInfo', {})
+        .then(res => {
+          // console.log('MyLoginInfo',res);
+          if (res.code == 200) {
+            that.setData({
+              id: res.data.mobile
+            })
+          }
+        })
+        .catch(res => {
+          console.log('catch', res)
+        })
+    }else {
+      that.setData({
+        hasLogin: false
+      })
+    }
     // 订单信息
     $http.post('/api/User/IndentStatis', {})
       .then(res => {
@@ -228,6 +239,12 @@ Page({
     // 修改密码
     wx.navigateTo({
       url: '/pages/mine/changePwd/changePwd',
+    })
+  },
+  toLogin: function(){
+    // 跳转登录
+    wx.navigateTo({
+      url: '/pages/login/login',
     })
   }
 })

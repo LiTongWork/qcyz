@@ -10,7 +10,7 @@ Page({
   data: {
     editHeader: '',
     name: '',
-    loginPwd: '', //登陆密码
+    loginPwd: '', //登录密码
     pwd: '', //支付密码
     regionCode: "", //地址code
     loginName: "", //输入姓名
@@ -63,7 +63,7 @@ Page({
       pwd: e.detail.value
     })
   },
-  // 登陆密码
+  // 登录密码
   changeLoginPwd(e) {
     this.setData({
       loginPwd: e.detail.value
@@ -101,7 +101,7 @@ Page({
     var that = this;
     let baseUrl = app.globalData.baseURL;
     wx.request({
-      url: baseUrl + '/api/Register/MasterTypeList',
+      url: baseUrl + '/api/Register/MasterTypeListNew',
       method: "POST",
       header: {
         "Content-Type": "application/json;charset=UTF-8",

@@ -1,0 +1,57 @@
+/* pages/store/goodsComments/goodsComments.wxss */
+page {
+  background-color: #fff;
+}
+.list {
+  width: 100%;
+  padding: 36rpx 0;
+}
+.list-item {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 45rpx;
+  margin-bottom: 30rpx;
+}
+.list-item .info {
+  display: flex;
+}
+.list-item .info .avatar {
+  width: 110rpx;
+}
+.list-item .info .avatar image {
+  width: 100%;
+  border-radius: 50%;
+}
+.list-item .info .desc {
+  padding: 0 15rpx;
+  flex: 1;
+  height: 100rpx;
+}
+.list-item .info .desc view {
+  height: 54rpx;
+  line-height: 54rpx;
+}
+.list-item .info .desc view.createTime {
+  color: #a2a2a2;
+}
+.list-item .content .text {
+  padding: 15rpx 0;
+  line-height: 50rpx;
+}
+.list-item .content .pics {
+  padding: 10rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  width: 100%;
+}
+.list-item .content .pics image{
+  width: 23%;
+  margin-right: 2%;
+}
+/* 暂无数据 */
+.noData {
+  height: 300rpx;
+  line-height: 300rpx;
+  color: #a2a2a2;
+}

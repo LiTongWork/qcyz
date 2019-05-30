@@ -23,16 +23,23 @@
     </view>
     <view class=' freight'>运费：<text>{{detailData.freight > 0 ? detailData.freight : '免运费'}}</text></view>
     <view class='comments'>
-      <view class='title'>
+      <view class='title' bindtap='toGoodsComments' data-id='{{id}}'>
         <text>宝贝评论</text>
-        <text class='fr'>暂无评论</text>
+        <text class='fr'>查看评论</text>
       </view>
+    </view>
+    <view class='goodsContent'>
+      <view class='title'>
+        <text>宝贝详情</text>
+      </view>
+      <view class='rich-text'><rich-text nodes="{{goodsContent}}" bindtap="tap"></rich-text></view>
     </view>
   </view>
   <view class='subOrder'>
     <view class='service'>
       <image src='/static/img/icon-service.png' mode='widthFix'></image>
       <text>客服</text>
+      <button open-type="contact"></button>
     </view>
     <view class='line'><image src='/static/img/icon-line.png' mode='widthFix'></image></view>
     <view class='shopCar' bindtap='toShopCar'>

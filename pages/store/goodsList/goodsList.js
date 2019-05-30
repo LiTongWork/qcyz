@@ -21,7 +21,7 @@ Page({
     let baseUrl = app.globalData.baseURL;
     let imgUrl = app.globalData.imgUrl;
     wx.request({
-      url: baseUrl +'/api/Store/GoodsPage',
+      url: baseUrl +'/api/Home/GoodsPage',
       method: "POST",
       header: {
         "Content-Type": "application/json;charset=UTF-8",
@@ -87,7 +87,7 @@ Page({
     let baseUrl = app.globalData.baseURL;
     let imgUrl = app.globalData.imgUrl;
     wx.request({
-      url: baseUrl + '/api/Store/GoodsPage',
+      url: baseUrl + '/api/Home/GoodsPage',
       method: "POST",
       header: {
         "Content-Type": "application/json;charset=UTF-8",
@@ -111,13 +111,6 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   },
   // 跳转
   toGoodsDetail: function (e) {

@@ -37,7 +37,7 @@ Page({
         console.log('catch', res);
       })
     // nav导航分类
-    $http.post('/api/Store/GoodsType',{})
+    $http.post('/api/Home/GoodsType',{})
       .then( res => {
         let all = {
           id: '00000000-0000-0000-0000-000000000000',
@@ -64,7 +64,7 @@ Page({
       page: 1,
       rows: 10
     }
-    $http.post('/api/Store/GoodsPage', goodsPage)
+    $http.post('/api/Home/GoodsPage', goodsPage)
       .then(res => {
         console.log(res);
         that.setData({
@@ -110,9 +110,26 @@ Page({
   // 跳转
   toShopCar: function () {
     // 跳转购物车
-    wx.navigateTo({
-      url: '/pages/store/shopCar/shopCar',
-    })
+    if (wx.getStorageSync("auth") != '' && wx.getStorageSync('openId') != '' && wx.getStorageSync('loginType') == 6) {
+      wx.navigateTo({
+        url: '/pages/store/shopCar/shopCar',
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
   },
   toList: function (e) {
     // 商品列表跳转到列表页

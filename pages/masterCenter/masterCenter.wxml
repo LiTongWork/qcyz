@@ -18,8 +18,8 @@
         <text>{{masterPhone}}</text>
       </view>
       <view>
-        <text class="{{type==1?'active':'header-btn'}}" bindtap='doIt'>接单中</text>
-        <text class="{{type==0?'active':'header-btn'}}" bindtap='doing'>工作中</text>
+        <text class="{{type==0?'active':'header-btn'}}" bindtap='doIt'>接单中</text>
+        <text class="{{type==1?'active':'header-btn'}}" bindtap='doing'>工作中</text>
       </view>
     </view>
   </view>
@@ -53,6 +53,14 @@
       </view>
       <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
     </view>
+    <button class='master-list-tag contact' open-type="contact">
+      <view class='master-tag'>
+        <image class='master-tag-img' src='/static/img/icon-contact.png'></image>
+        <text>联系客服</text>
+      </view>
+      <image class='right-icon' src='/static/img/icon-right.png' mode='widthFix'></image>
+    </button>
+
   </view>
 
 </view>

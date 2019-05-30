@@ -2,8 +2,8 @@
 <view class='container'>
   <!-- nav -->
   <view class='nav'>
-    <view class='nav-item {{item.type == showFlag ? "active": " "}}' wx:for='{{nav}}' wx:key='index' data-type='{{item.type}}' data-title='{{item.label}}' bindtap='clickNavigation'>
-      <text>{{item.label}}</text>
+    <view class='nav-item {{i.type == showFlag ? "active": " "}}' wx:for='{{nav}}' wx:for-item="i" wx:key='index' data-type='{{i.type}}' data-title='{{i.label}}' bindtap='clickNavigation'>
+      <text>{{i.label}}</text>
     </view>
   </view>
   <view   style='flex-direction: column;margin-top:10rpx;justify-content: center;width:660rpx;'>
@@ -16,7 +16,7 @@
 
           <view class='address-local'>
             <image class='local-icon' src='/static/img/local-icon.png' mode='widthFix'></image>
-            <text style="font-size:24rpx;color:#bcbcbc">{{item.province + item.city + item.area}}</text>
+            <text style="font-size:24rpx;color:#bcbcbc">{{item.province + item.city + item.area+item.address}}</text>
           </view>
           <text style="font-size:24rpx;color:#bcbcbc">{{item.createTime}}</text>
         </view>

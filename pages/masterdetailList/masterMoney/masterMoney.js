@@ -51,7 +51,7 @@ Page({
     console.log(md5.hexMD5(that.data.moneyPwd))
     if (that.data.moneyPwd==''){
       wx.showToast({
-        title: '支付密码不能为空',
+        title: '提现密码不能为空',
         icon: 'none',
         mask: true,
         duration: 1500
@@ -71,6 +71,24 @@ Page({
       },
       success(res) {
         console.log(res.data.code);
+        wx.showToast({
+          title: "提现成功",
+          icon: 'none',
+          mask: true,
+          duration: 2000
+        })
+        setTimeout(function(){
+          wx.redirectTo({
+            url: '/pages/masterCenter/masterCenter',
+          })
+        },2000)
+      },fail(res){
+        wx.showToast({
+          title: "提现失败",
+          icon: 'none',
+          mask: true,
+          duration: 2000
+        })
       }
     })
   },
