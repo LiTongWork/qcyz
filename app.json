@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-
     "pages/store/store",
     "pages/service/service",
     "pages/mine/mine",

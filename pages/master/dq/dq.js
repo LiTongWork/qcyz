@@ -10,7 +10,7 @@ Page({
   data: {
     masterType: '',
     masterTypeId: '',
-    content: {},
+    content: [],
     itemList: [],
     totalMoney: 0,
     startTime: 1,
@@ -72,12 +72,15 @@ Page({
   totalMoney: function () {
     let that = this;
     let totalMoney = 0;
-    for (let i in that.data.content) {
-      let count = that.data.content[i].count;
-      let pice = that.data.content[i].pice;
-      totalMoney = totalMoney + count * pice;
-      // console.log(count, pice,totalMoney)
-    }     
+    console.log(that.data.content)
+    if(that.data.content.length > 0) {
+      for (let i in that.data.content) {
+        let count = that.data.content[i].count;
+        let pice = that.data.content[i].pice;
+        totalMoney = totalMoney + count * pice;
+        // console.log(count, pice,totalMoney)
+      }  
+    }   
     that.setData({
       totalMoney: totalMoney.toFixed(2)
     })
@@ -138,7 +141,8 @@ Page({
       region: e.detail,
       regionStatus: true
     })
-    console.log(this.data.region)
+    this.getList();
+    console.log(this.data.masterType)
   },
   // 输入详细地址
   detailAddInput: function (e) {
@@ -398,49 +402,67 @@ Page({
         }
       })
 
-    }
-
-
-  
+    }  
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // 获取列表
+  getList: function(){
     let that = this;
-    wx.setNavigationBarTitle({
-      title: options.title
-    })
     that.setData({
-      masterType: options.title
+      content: [],
+      itemList: []
     })
-    
-    $http.post('/api/Home/WorkItemList', { masterTypeId: options.type})
-    .then(res => {
-      console.log(res);
-      that.setData({
-        content: res.data.list,
-        masterTypeId: res.data.id,
-        remark: res.data.remark
-      })
-      // 初始化价格
-      that.totalMoney();
-      // 遍历内容，提取需要的内容
-      for (let i in that.data.content) {
-        let obj = {
-          itemId: that.data.content[i].id,
-          number: that.data.content[i].count
+    let params = {
+      masterTypeId: that.data.masterTypeId,
+      area: that.data.region.value[2],
+      city: that.data.region.value[1],
+      province: that.data.region.value[0]
+    }
+    $http.post('/api/Home/TypeItem', params)
+      .then(res => {
+        console.log(res);
+        if (res.code == 200 && res.data.itemList.length > 0){
+
+          that.setData({
+            hasContent: true,
+            content: res.data.itemList,
+            remark: res.data.remark
+          })
+          console.log(that.data.content)
+          // 遍历内容，提取需要的内容
+          for (let i in that.data.content) {
+            let obj = {
+              itemId: that.data.content[i].id,
+              number: that.data.content[i].count
+            }
+            that.data.itemList.push(obj)
+          }
+          // 初始化价格
+          that.totalMoney();
+          console.log('成功获取到的list列表',that.data.content)
+        } else if (res.code == 200 && res.data.itemList.length == 0) {
+          wx.showToast({
+            title: '该地区暂无服务',
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          return false
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            mask: true,
+            duration: 1500
+          })
+          return false
         }
-        that.data.itemList.push(obj)
-      }
-      console.log(that.data.itemList)
-    })
-    .catch(res => {
-      console.log(res)
-    })
+      })
+      .catch(res => {
+        console.log(res)
+      })
 
     console.log(that.data.masterType);
-    if (that.data.masterType == '清洁工'){
+    if (that.data.masterType == '清洁工') {
       // 获取完整的年月日 时分秒，以及默认显示的数组
       var obj1 = dateTimePicker.dateTimePicker(that.data.startYear, that.data.endYear);
       // 精确到分的处理，将数组的秒去掉
@@ -457,7 +479,20 @@ Page({
         startTime: that.data.dateTimeArray1[0][that.data.dateTime1[0]] + '-' + that.data.dateTimeArray1[1][that.data.dateTime1[1]] + '-' + that.data.dateTimeArray1[2][that.data.dateTime1[2]] + ' ' + that.data.dateTimeArray1[3][that.data.dateTime1[3]]
       })
     }
-   
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let that = this;
+    wx.setNavigationBarTitle({
+      title: options.title
+    })
+    that.setData({
+      masterType: options.title,
+      masterTypeId: options.type
+    })
+    console.log(options)
   },
   onShow: function (){
     let that = this;

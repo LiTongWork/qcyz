@@ -14,6 +14,7 @@
 }
 /* 职责 */
 .responsibility .title {
+  margin-top: 10rpx;
   padding-bottom: 36rpx;
   width: 630rpx;
 }
